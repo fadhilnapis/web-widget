@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>
+</title>
+</head>
+<body>
+<script src="js/SearchBoxMaker.js">
+</script>
+<center>
+<div class="pForm">
+<div id="thepreviewdiv">
+<div id="search">
+<input id="searchfield" name="q" onblur="if (this.value == '') {this.value = 'Search...';}" onfocus="if (this.value == 'Search...') {this.value = '';}" type="text" value="Search..." size="17" style="color:#888;padding:0px 5px;font-weight:bold;font-style:italic;height:22px;background:white;border:1px inset #777777;border-radius:5px;-o-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;"></input>
+<input type="Submit" value="Search" style="margin:0px;height:24px;"></input><br>
+</div><br>
+</div>
+<table border="1" id="searchboxmaker">
+	<tbody>
+		<tr>
+			<td>Default Text</td>
+			<td style="border:none">:</td>
+			<td><input id="defaultText" type="text" size="15" value="Search..."></input><input id="defaultTextBold" type="checkbox" title="Bold" checked></input><input id="defaultTextItalic" maxlength="40" type="checkbox" title="Italic" checked></input></td>
+		</tr><tr>
+			<td id="goChangeButton">Button Text</td>
+			<td style="border:none">:</td>
+			<td><input id="buttonText" type="text" size="15" maxlength="15" value="Search"></input><input id="buttonTextType" type="checkbox" title="Text or Image" onclick="if(this.checked==true){ document.getElementById('buttonText').value='Search'; document.getElementById('buttonText').maxLength='15'; document.getElementById('goChangeButton').innerHTML='Button Text'; }else{ document.getElementById('buttonText').value='http://images-3.findicons.com/files/icons/1254/flurry_system/256/search.png'; document.getElementById('goChangeButton').innerHTML='Button Image';}" checked></input></td>
+		</tr><tr>
+			<th colspan="3" style="text-align:center">Field Style</th>
+		</tr><tr>
+			<td>Field Size</td>
+			<td style="border:none">:</td>
+			<td><input id="fieldSize" type="text" maxlength="2" size="22" value="17"></input></td>
+		</tr><tr>
+			<td>Field Background</td>
+			<td style="border:none">:</td>
+			<td><input id="fieldBackground" type="text" size="22" value="white"></input></td>
+		</tr><tr>
+			<td>Field Radius</td>
+			<td style="border:none">:</td>
+			<td><input id="fieldRadius" type="text" maxlength="2" size="19" value="5"></input>px</td>
+		</tr><tr>
+			<td>Field Border Color</td>
+			<td style="border:none">:</td>
+			<td>#<input id="fieldBorderColor"type="text" maxlength="6" size="21" value="777777"></input></td>
+		</tr><tr>
+			<td>Field Border Size</td>
+			<td style="border:none">:</td>
+			<td><input id="fieldBorderSize" type="text" maxlength="2" size="19" value="1"></input>px</td>
+		</tr><tr>
+			<td>SearchBox Height</td>
+			<td style="border:none">:</td>
+			<td><input id="searchBoxHeight" type="text" maxlength="2" size="19" value="22"></input>px</td>
+		</tr>
+	</tbody>
+</table>
+<input type="button" onclick="previewTheResult()" value="Preview"><input type="button" onclick="makeCustomizeNow()" value="Customize"><form action="http://beta.blogger.com/add-widget" target="_blank" method="POST" style="margin:0px;display:inline;"><input value="Search..." id="widgettitle" name="widget.title" type="hidden"/><textarea rows="3" cols="5" style="display: none;" id="widgetcontent" name="widget.content"></textarea><input value="Install" id="widgetbutton" class="button" name="go" type="submit" disabled /></form>
+<textarea id="AllOutput" style="width:200px;height:100px;display:none" onclick="this.focus();this.select();"></textarea>
+</div>
+<style>
+.pForm{
+	border-radius:10px;
+	border:1px solid #555;
+	padding:5px;
+	display:table;
+}
+.pForm table{
+	border-radius:10px;
+	padding:5px;
+}
+.pForm td{
+	border-radius:10px;
+	padding:5px;
+}
+.pForm th{
+	border-radius:10px;
+	padding:5px;
+}
+.pForm input[type="text"]{
+	border-radius:10px;
+	padding:1px 5px;
+}
+</style>
+</center>
+</body>
+</html>

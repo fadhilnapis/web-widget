@@ -1,0 +1,173 @@
+<html>
+<head>
+<style>
+fieldset {
+	display: inline-block;
+	margin: 5px 24px;
+	float: left;
+	text-align:center;
+}
+.testField {
+	width:200px;
+}
+.testSect {
+	height:180px;
+}
+.toolSect {
+	min-height:120px;
+	text-align:right;
+}
+</style>
+<script>
+var ind=-1,clbck,doned=true;
+function startTest(n){
+	ind=n;
+	switch(n){
+		case 0:
+		document.getElementById("startbutt").disabled="true";
+		document.getElementById("hndChoose").disabled="true";
+		startHandTest();
+		wor.addEventListener("contextmenu", function(evt) {if(event.button==2)event.preventDefault();}, false);
+		break;
+		case 1:
+	}
+}
+var inter, inter1, count=0, countd=0,tit,num,wor,chs,hjgf,score=0;
+function startHandTest(){
+	tit = document.getElementById("hndTitle");
+	num = document.getElementById("hndNum");
+	wor = document.getElementById("hndTest");
+	chs = document.getElementById("hndChoose");
+	tit.innerHTML = "Start in...";
+	num.innerHTML = 3;
+	count=3;
+	clbck = function(){playHandTest();window.clearInterval(inter);};
+	inter = setInterval("writHtmlThings(num, count<=0, 1,'')", 1000);
+	wor.value = document.getElementById("hndChoose").value;
+}
+function writHtmlThings(el,g,x,p){
+	if(g){count=0;clbck();}else{
+	count-=x;}
+	el.innerHTML = p+parseInt(count);
+}
+function playHandTest(){
+	count=20;
+	tit.innerHTML = "GO!";
+	wor.style.background = "#00FFCF";
+	clbck = function(){checkScore(ind);window.clearInterval(inter1);};
+	inter1 = setInterval("writHtmlThings(tit, count<=0, 1, 'Go!:')", 1000);
+	switch(chs.selectedIndex){
+		case 0:case 1:case 2:
+		wor.onmousedown = function(event){repeatlyDo(event);	return false;};
+		break;
+		case 3: 
+		wor.onkeydown = function(event){repeatlyDo(event);};
+		wor.onkeyup = function(event){clearyDo(event);};
+		break;
+	}
+}
+function repeatlyDo(event){
+	if(chs.selectedIndex<3){
+		if(event.button==chs.selectedIndex){
+			score+=1;
+			num.innerHTML=score;
+		}
+	}else{
+		if(doned){
+			if(event.keyCode==32){
+				score+=1;
+				num.innerHTML=score;
+			}doned=false;
+		}
+	}
+}
+function clearyDo(event){
+	doned=true;
+}
+function checkScore(n){
+	wor.disabled="true";
+	document.getElementById("hndResult").innerHTML="Result:<br>Score:"+score+"<br>"+(score/20)+" "+wor.value+" per second";
+}
+</script>
+</head><body>
+	<fieldset class="testField">
+		<legend>Hand Speed Test</legend>
+		<div class="testSect">
+		<div style="background:#4093E4;height:180px;width:200px;display: inline-block;">
+			<span style="font-size:25px;" id="hndTitle">Score:</span><br>
+			<span style="font-size:55px;position: relative;top: 15px;" id="hndNum">0</span><br>
+			<input id="hndTest" value="-----" type="button" style="border:1px;text-align:center;background:#3E84CA;height:24px;width:130px;display: inline-block;position: relative;top: 20px;font-size: 21px;cursor: crosshair;user-select: none;-webkit-user-select: none;"></input>
+		</div>
+		</div>
+		<hr/>
+		<div class="toolSect">
+		<select id="hndChoose">
+			<option>Left-Click</option>
+			<option>Middle-Click</option>
+			<option>Right-Click</option>
+			<option>Space</option>
+		</select>:
+		<input type="button" value="Start" id="startbutt" onclick="startTest(0)"></input>
+		<div id="hndResult" style="text-align:right;"></div>
+		</div>
+	</fieldset>
+	<fieldset class="testField">
+		<legend>Type Speed Test</legend>
+		<div class="testSect">
+		<div style="background:#eeeeee;height:90px;width:200px;display: inline-block;
+	text-align:left;">Please Type this word on your textarea. I'll calculate it later. Because this tool need you to type this fist...</div>
+		<textarea cols="25" rows="6"></textarea>
+		</div>
+		<hr/>
+		<div class="toolSect">
+		<select>
+			<option>Word/sec</option>
+			<option>Letter/sec</option>
+		</select>:
+		<input type="button" value="Start"></input>
+		</div>
+	</fieldset>
+	<!----
+	<fieldset class="testField">
+		<legend>Reflection Speed Test</legend>
+		<div class="testSect">
+		<div style="background:#40E4BF;height:180px;width:200px;display: inline-block;">
+			<span style="" id="reflTitle">Click "Start":</span><br>
+			<span style="font-size:55px;position: relative;top: 30px;" id="reflNum">0.0s</span><br>
+		</div>
+		</div>
+		<hr/>
+		<div class="toolSect">
+		<select>
+			<option>Space</option>
+			<option>Left-Click</option>
+			<option>Right-Click</option>
+			<option>Middle-Click</option>
+		</select>:
+		<input type="button" value="Start"></input>
+		</div>
+	</fieldset>
+	<fieldset class="testField">
+		<legend>Play & Stop Test</legend>
+		<div class="testSect">
+		<div style="background:#eeffff;height:180px;width:200px;display: inline-block;">
+		</div>
+		</div>
+		<hr/>
+		<div class="toolSect">
+		
+		</div>
+	</fieldset>
+	<fieldset class="testField">
+		<legend> Speed Test</legend>
+		<div class="testSect">
+		
+		</div>
+		<hr/>
+		<div class="toolSect">
+		
+		</div>
+	</fieldset>
+	--------->
+</body>
+</html>

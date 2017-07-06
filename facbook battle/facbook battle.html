@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html b:version="2" class="v2" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">
+<head>
+</head><body>
+<script src="js/facebook battle.js"></script>
+<style>
+.FBBATTLEMAKER img{
+	border:none;
+	padding:0px;
+}
+table#fbaccount .fbline input{
+border:none !important;
+}
+table#fbaccount .changUrlTool{
+background:url(http://2.bp.blogspot.com/-Xx9X6gYmoEA/UNZ3PMK7DbI/AAAAAAAAAlU/0mkI_-Uihcg/s1600/top+edit.png) !important;
+cursor:pointer !important;
+position:absolute !important;
+width: 16px !important;
+height: 16px !important;
+}
+table#fbaccount .changUrlPort{
+background:#fff !important;
+border:solid 1px #999 !important;
+font-size:12px !important;
+position:absolute !important;
+height: 22px !important;
+margin:7px !important;
+padding:2px
+}
+table#fbaccount .changUrlPort input{
+font-size:11px !important;
+}
+table#fbaccount .fbnames input{
+color: #3B5998 !important;
+font-weight: bold !important;
+font-size: 13px !important;
+font-family: 'lucida grande',tahoma,verdana,arial,sans-serif !important;
+}
+table#fbaccount .fbposts span#vfbposts{
+color: #333 !important;
+font-size: 13px !important;
+border:none !important;
+}
+table#fbaccount .fblikes, table#fbaccount .fblikes input{
+color: #3B5998 !important;
+font-size: 11px !important;
+}
+table#fbaccount {
+display: inline-block !important;
+text-align:left !important;
+}
+.Author {
+border:solid 1px #faa !important;
+}
+.Commentor {
+border:solid 1px #888 !important;
+}
+.oppaCommentStyle {
+text-align:center !important;
+font-family: 'lucida grande',tahoma,verdana,arial,sans-serif !important;
+font-size: 13px !important;
+width:459px !important;
+text-align:left !important;
+}
+.cfbnames {
+	color: #3B5998 !important;
+	font-weight: bold !important;
+	padding-bottom: 4px !important;
+}
+.cfbposts {
+	color: #333 !important;
+	line-height: 1.38 !important;
+	margin: 5px 0px !important;
+}
+.cfbfootor {
+	color: #999 !important;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif !important;
+	font-size: 11px !important;
+	margin-top: -1px !important;
+	line-height: 1.28 !important;
+}
+.cfbfootor a{
+	color: #6D84B4 !important;
+}
+.cfbcomment ul{
+	list-style-type: none !important;
+	margin: 0px !important;
+	padding: 0px !important;
+	font-size: 11px !important;
+	font-weight:normal !important;
+}
+.cfbcomment ul li{
+	list-style: none !important;
+	margin-top: 1px !important;
+	background-color: #F1F2F6 !important;
+	padding: 4px !important;
+	line-height: 1.28 !important;
+}
+.cfbcomment ul li a{
+	color:#3B5998 !important;
+}
+.cfbcfootor {
+	padding-top: 2px !important;
+	font-weight: normal !important;
+	color: #808080 !important;
+	margin-top: 1px !important;
+}
+.cfbcfootor a{
+	color:#3B5998 !important;
+}
+.dltComment {
+	display:none !important;
+	cursor:pointer !important;
+}
+ul#idfbgocomment li:hover .dltComment {
+	display:block !important;
+}
+div#FbCharacterAct {
+	background:#fff !important;
+}
+</style>
+<div class="FBBATTLEMAKER">
+<div id="idstartcomment">
+<div id="FBaccountsDisplay" style="width:100%;text-align:center;">
+</div>
+<div style="width:100%;text-align:center;">
+<table id="fbaccount" class="Author" style="width:400px">
+<tbody><tr name="fbaccounttrow">
+<td rowspan="4" style="width:100px">
+<span class="changUrlTool" onclick="openFBURLtool()"></span>
+<span id="urlPortChange" class="changUrlPort" style="display:none">
+URL:<input id="vfbthumb" type="text" value="http://www.theprprofessional.com/wp-content/uploads/2011/11/facebook-profile-picture.jpg" style="text-align:right" size="10"></input>
+<input type="button" onclick="setFBURLtool()" value="+"size="10"></input></span>
+<img id="fbimage" src="http://www.theprprofessional.com/wp-content/uploads/2011/11/facebook-profile-picture.jpg" style="width:100px;height:100px"></img>
+</td><td>
+Name:
+</td><td class="fbline fbnames">
+<input id="vfbnames" type="text" value="David Tayar" size="10"></input>
+</td></tr>
+<tr name="fbaccounttrow"><td>
+Post:
+</td><td class="fbline fbposts">
+<span contenteditable="true" id="vfbposts" type="text" cols="27" rows="1">Fuhh, My company got RM 10M.</span>
+<div id="startTagFbAcc" style="width:237px;border:solid 1px #888;padding:5px;display:none">
+<div id="goAccountsTag" style="width:100%">
+</div>
+<input id="inTagFbAcc" style="width:100%"/>
+</div>
+</td></tr>
+<tr name="fbaccounttrow"><td style="text-align:right">
+<img src="http://www.jillianney.com/wp-content/uploads/2012/01/like.png" height="13"/>
+</td><td class="fbline fblikes">
+<input id="vfblikes" type="text" value="157" style="text-align:right" size="1"></input> people
+</td></tr>
+<tr name="fbaccounttrow">
+<td>
+Option:
+</td><td id="fbOption">
+<input type="button" onclick="createFBSAVE(nameFBaccounts.length, document.getElementById('vfbnames').value, document.getElementById('vfbthumb').value, document.getElementById('fbaccount').getAttribute('class'), 'none');" value="Create"/>
+</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="startOptionCustomize" style="text-align:center;display:none">
+<input type="button" onclick="saveAllAccount();document.getElementById('startOptionCustomize').style.display='none'" value="Start Act"></input>
+</div>
+<div id="startCommentingID">
+</div>
+<div id="FbCharacterAct" style="display:none;text-align:center;padding: 5px;border: solid 1px #aaa;">
+<img src="http://3.bp.blogspot.com/-e3ZptvIzZJk/UOlNzJLENLI/AAAAAAAAAm0/eDcdjQ4CmXk/s1600/Untitled.png" width="505"></img>
+<img src="http://3.bp.blogspot.com/-PqBD1SAV6SM/UOoym1z8MyI/AAAAAAAAAnY/J_73AyM76Vs/s1600/HJS+Stamp+rotate1.png" width="100" style="position: absolute;margin-left: 40px;margin-top: -87px;"></img><br/>
+<div class="oppaCommentStyle" style="display:inline-block;padding-bottom:20px;border-bottom: solid 2px #DDD;margin-bottom:10px;">
+<img id="idfbthumb" src="http://www.theprprofessional.com/wp-content/uploads/2011/11/facebook-profile-picture.jpg" width="50" height="50" style="float:left;"></img>
+<div style="margin-left:60px">
+<a id="idfbusername" class="cfbnames">User Play</a>
+<div id="idfbposts" class="cfbposts">post</div>
+<div class="cfbfootor"><a>Like</a> · <a>Comment</a> · <a>Share</a> · <span id="idFBpostTime" name="dateUpdateringNyePun">5 minutes</span> ago · <i style="background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yZ/x/kZe0TGSu8RW.png);background-size: auto;background-repeat: no-repeat;display: inline-block;height: 12px;width: 12px;background-position: -281px -198px;"></i></div>
+<div id="idfbcomment" class="cfbcomment" style="margin-top: 1px;">
+<ul id="idfbgocomment">
+<i style="margin-bottom: -2px;margin-top: 0;background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/y8/x/UvyvLtJTQzO.png); background-size: auto; display: block; height: 5px; margin-left: 17px; width: 9px; background-position: 0px 0px; background-repeat: no-repeat no-repeat;"></i>
+<li style="border-left: 2px solid #A8B2CE;"><i style="background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/y1/x/sxT25MAq-6B.png);background-repeat: no-repeat;background-size: auto;background-position: 0 -52px;display: block;height: 13px;width: 15px;float: left;margin-right: 5px;margin-top: 1px;padding:1px 0px;"></i><div style="margin-top:2px"><a>34 people</a> like this.</div></li>
+<li>
+<div style="float:left;margin-right: 8px;"><img src="http://www.theprprofessional.com/wp-content/uploads/2011/11/facebook-profile-picture.jpg" width="32" height="32"/></div>
+<div><a class="cfbnames">Gee Geds</a> <span class="cfbcomments">Bro Gadssxzc sda</span><span class="dltComment" onclick="
+this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)" style="position:relative;float:right;">x</span><div class="cfbcfootor">21 minutes · <a>Like · <i style="background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yU/x/XUQ8Cg7ygHd.png);background-repeat: no-repeat;background-size: auto;background-position: -242px -22px;display: inline-block;height: 9px;margin-right: 3px;width: 10px;"></i>34</a></div></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

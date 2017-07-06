@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="C:/Users/Fadz/Downloads/Compressed/jscolor-1.4.1/jscolor/jscolor.js"></script>
+	<script src='../jpicker-1.1.6/jquery-1.4.4.min.js'></script>
+	<script src='jquery-ui.js'></script>
+</head>
+<body>
+<script>
+function createForm(){
+	var ginputCode = document.getElementById("inputCode");
+	var goutputCode = document.getElementById("outputCode");
+	var gwidgetrandomid=parseInt(Math.random()*100000);
+	var widgetname=ginputCode.value.split("[widgetName:\"")[1].split("\"]")[0];
+	var texto="";
+	var texty="";
+	var io=0;
+	var vale=new Array();
+	var gas=new Array();
+	var gsetc=new Array();
+	var gtype=new Array();
+	var gdef=new Array();
+	var minmaxval=new Array();
+	var mn=new Array(new Array());
+	var ds=new Array();
+	for(var i=0;i<ginputCode.value.split("[editpart").length-1;i++){
+		gas[i]=ginputCode.value.split("[editpart")[i+1].split("/]")[0];
+		gsetc[i]=gas[i].split("section='")[1].split("'")[0];
+		gtype[i]=gas[i].split("type='")[1].split("'")[0];
+		gdef[i]=(gas[i].search("default='")>=0)?gas[i].split("default='")[1].split("'")[0]:gas[i].split("choose='")[1].split("'")[0];
+		minmaxval[i]=(gas[i].search("minmax='")>=0)?gas[i].split("minmax='")[1].split("'")[0]:"-";
+		vale[i]="";
+		texty+="var v"+((gsetc[i]=='')?gsetc[i-1].replace(/\s/gi,"")+i:gsetc[i].replace(/\s/gi,"")+i)+" = document.getElementById(\"maker"+((gsetc[i]=='')?gsetc[i-1].replace(/\s/gi,"")+i:gsetc[i]+i)+"\");<br>";
+		vale[i]=vale[i]+((gsetc[i]=='')?"":"</td></tr><tr><td class='makerquest'>"+gsetc[i]+"</td><td class='makeranswer'>");
+		switch(gtype[i]){
+			case "option":
+				vale[i]=vale[i]+"<select id='maker"+((gsetc[i]=='')?gsetc[i-1].replace(/\s/gi,"")+i:gsetc[i].replace(/\s/gi,"")+i)+"'>";
+				for(var s=0;s<gdef[i].split(",").length;s++){
+					vale[i]=vale[i]+"<option value='"+gdef[i].split(",")[s]+"'>"+gdef[i].split(",")[s]+"</option>";
+				}
+				vale[i]=vale[i]+"</select>";
+			break;
+			case "check":
+				vale[i]=vale[i]+"<input id='maker"+((gsetc[i]=='')?gsetc[i-1].replace(/\s/gi,"")+i:gsetc[i].replace(/\s/gi,"")+i)+"'";
+				vale[i]=vale[i]+" type='checkbox'";
+				vale[i]=vale[i]+((gdef[i]=='true')?" checked ":"");
+				vale[i]=vale[i]+"/>";
+			break;
+			case "color":
+				vale[i]=vale[i]+"<input id='maker"+((gsetc[i]=='')?gsetc[i-1].replace(/\s/gi,"")+i:gsetc[i].replace(/\s/gi,"")+i)+"'";
+				vale[i]=vale[i]+" type='text' class='cchoser' value='"+gdef[i].split("#")[1]+"'";
+				vale[i]=vale[i]+"/>";
+			break;
+			case "range":
+				vale[i]=vale[i]+"<div id='maker"+((gsetc[i]=='')?gsetc[i-1].replace(/\s/gi,"")+i:gsetc[i].replace(/\s/gi,"")+i)+"'";
+				vale[i]=vale[i]+" class='range' value='"+gdef[i]+"' style='width:100px'";
+				vale[i]=vale[i]+"></div>";
+				if(minmaxval[i]!="-"){
+					mn[io][0]=parseInt(minmaxval[i].split(",")[0]);
+					mn[io][1]=parseInt(minmaxval[i].split(",")[1]);
+				}else{
+					mn[io][0]=0;
+					mn[io][1]=gdef[i];
+				}
+				ds[io]=i;
+				io=io+1;
+			break;
+			case "text":
+				vale[i]=vale[i]+"<input id='maker"+((gsetc[i]=='')?gsetc[i-1].replace(/\s/gi,"")+i:gsetc[i].replace(/\s/gi,"")+i)+"'";
+				vale[i]=vale[i]+" type='text' value='"+gdef[i]+"'";
+				vale[i]=vale[i]+"/>";
+			break;
+			case "number":
+				vale[i]=vale[i]+"<input id='maker"+((gsetc[i]=='')?gsetc[i-1].replace(/\s/gi,"")+i:gsetc[i].replace(/\s/gi,"")+i)+"'";
+				vale[i]=vale[i]+" type='text' value='"+gdef[i]+"'";
+				vale[i]=vale[i]+"/>";
+			break;
+			case "imgurl":
+				vale[i]=vale[i]+"<input id='maker"+((gsetc[i]=='')?gsetc[i-1].replace(/\s/gi,"")+i:gsetc[i].replace(/\s/gi,"")+i)+"'";
+				vale[i]=vale[i]+" type='"+gtype[i]+"' value='"+((gdef[i]==''||gdef[i].length<7)?"http":gdef[i])+"'";
+				vale[i]=vale[i]+"/>";
+			break;
+		}
+		texto=texto+vale[i];
+	}
+	texty+=ginputCode.value.replace(/\x5beditpart.*?section='(.*?)'.*?\/\x5d/gi,"$1").replace(/\n/gi,"<br>");
+	goutputCode.innerHTML="<table id='widget"+gwidgetrandomid+"'><tbody><tr><td colspan='2' class='widgetTitle'>"+widgetname+""+texto+"</td></tr></tbody></table>";
+	goutputCode.innerHTML+=texty;
+	jscolor.init();
+	for(var d=0;d<io;d++){
+		$(function(){
+			$(".range:eq("+d+")").slider({
+				value:(parseInt(gas[ds[d]].split("default='")[1].split("'")[0])-mn[d][0])/(mn[d][1]-mn[d][0])*100,
+			});
+		});
+	}
+}
+</script>
+<style>
+.range{
+	display: inline-block;
+	height:5px;
+	position:relative;
+	background:#999;
+	margin:3px 10px;
+	cursor:pointer;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+.ui-slider-handle{
+	height:10px;
+	width:10px;
+	position:absolute;
+	background:#333;
+	margin:-3px -3px;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+</style>
+<textarea id="inputCode">
+[widgetName:"Widgetsa"]
+var WidTwt={
+	//Basic
+	hashtag : "[editpart type='option' choose='#,@' section='Tag'/][editpart type='text' default='HJS_HelpMe' section=''/]",
+	nopost : "[editpart type='text' default='No Post' section='No Post Tag'/]",
+	txtbtn : "[editpart type='text' default='Jerit!' section='Shout Button'/]",
+	rsltpp : [editpart type='number' default='10' section='Shout Button'/],
+	csound : [editpart type='check' default='true' section='Allow Chat Sound'/],
+	creply : [editpart type='check' default='true' section='Allow Reply Button'/],
+	//size
+	WidWidth : [editpart type='number' default='200' section='Widget Width'/],
+	WidHeigh : [editpart type='number' default='300' section='Widget Height'/],
+	btomtag : "[editpart type='range' minmax='15,50' default='20' section='Bottom Hieght'/]",
+	//BACKGROUND
+	widback : "[editpart type='color' default='#3399dd' section='Outer Back'/]",
+	sectbck : "[editpart type='color' default='#ffffff' section='Inner Back'/]",
+	//BORDER
+	widbrdr : "[editpart type='color' default='#cccccc' section='Outer Border'/]",
+	twtbrdr : "[editpart type='color' default='#e8e8e8' section='Inner Border'/]",
+	//TEXT
+	deftext : "[editpart type='color' default='#000000' section='Default'/]",//default
+	unusecl : "[editpart type='color' default='#999999' section='Unfocus'/]",//secondary
+	twtalnk : "[editpart type='color' default='#0084B4' section='Link'/]",//link
+	btntxtc : "[editpart type='color' default='#333333' section='Shout Button'/]",//button
+	ncknmcl : "[editpart type='color' default='#333333' section='Nickname'/]",//nickname
+	//OTHER
+	whlodng : "[editpart type='imgurl' default='https://abs.twimg.com/a/1366303520/t1/img/loader.gif' section='While Loading Text'/]",
+	shdtrue : [editpart type='check' default='true' section='Allow Shadow'/],
+}
+setTimeout("startThsWidget()",1000);
+</textarea>
+<br>
+<input type="button" value="Generate!" onclick="createForm()"/>
+<br>
+<div id="outputCode"></div>
+</body>
+</html>

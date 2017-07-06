@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Your Noti Main Page</title>
+<script src="js/PrintDecimal.js"></script>
+</head><body>
+<div id="trialSPMcountdown"></div>
+<div id="SPMcountdown"></div>
+<script>
+function startcountdowntrialspm(x, v){
+	var DateFormat = new DecimalFormat("###,###,###");
+	var dt = new Date();
+	var w=dt.getYear();
+	var p=dt.getMonth();
+	var m=dt.getDate();
+	var dy = new Date(x);
+	var q=dy.getYear();
+	var o=dy.getMonth();
+	var y=dy.getDate();
+	var u=q-w;
+	var r=(24 -(p-o))%12;
+	if(o-p<0){
+		u=u-1;
+	}
+	sec=(dy-dt)/1000;
+	min=(dy-dt)/1000/60;
+	hour=(dy-dt)/1000/60/60;
+	day=(dy-dt)/1000/60/60/24;
+	month=(dy-dt)/1000/60/60/24/31;
+	year=(dy-dt)/1000/60/60/24/366;
+	var godks = '';
+	godks += 'COUNTDOWN ' +v+ '<br>';
+	godks += u+' year, '+r+' month, '+parseInt(day%31)+' day...<table><tbody>';
+	godks += '<tr><td>Equal to </td><td style="text-align:right">'+parseInt(q-w)+'</td><td> year...</td></tr>';
+	godks += '<tr><td>Equal to </td><td style="text-align:right">'+DateFormat.format(month)+'</td><td> month...</td></tr>';
+	godks += '<tr><td>Equal to </td><td style="text-align:right">'+DateFormat.format(day)+'</td><td> day...</td></tr>';
+	godks += '<tr><td>Equal to </td><td style="text-align:right">'+DateFormat.format(hour)+'</td><td> hour...</td></tr>';
+	godks += '<tr><td>Equal to </td><td style="text-align:right">'+DateFormat.format(min)+'</td><td> min...</td></tr>';
+	godks += '<tr><td>Equal to </td><td style="text-align:right">'+DateFormat.format(sec)+'</td><td> sec...</td></tr></tbody></table>';
+	document.getElementById('trialSPMcountdown').innerHTML = godks;
+}
+function startcountdownspm(x, v){
+	var DateFormat = new DecimalFormat("###,###,###");
+	var dt = new Date();
+	var w=dt.getYear();
+	var p=dt.getMonth();
+	var m=dt.getDate();
+	var dy = new Date(x);
+	var q=dy.getYear();
+	var o=dy.getMonth();
+	var y=dy.getDate();
+	var u=q-w;
+	var r=(24 -(p-o))%12;
+	if(o-p<0){
+		u=u-1;
+	}
+	sec=(dy-dt)/1000;
+	min=(dy-dt)/1000/60;
+	hour=(dy-dt)/1000/60/60;
+	day=(dy-dt)/1000/60/60/24;
+	month=(dy-dt)/1000/60/60/24/31;
+	year=(dy-dt)/1000/60/60/24/366;
+	var godks = '';
+	godks += 'COUNTDOWN ' +v+ '<br>';
+	godks += u+' year, '+r+' month, '+parseInt(day%31)+' day...<table><tbody>';
+	godks += '<tr><td>Equal to </td><td style="text-align:right">'+parseInt(q-w)+'</td><td> year...</td></tr>';
+	godks += '<tr><td>Equal to </td><td style="text-align:right">'+DateFormat.format(month)+'</td><td> month...</td></tr>';
+	godks += '<tr><td>Equal to </td><td style="text-align:right">'+DateFormat.format(day)+'</td><td> day...</td></tr>';
+	godks += '<tr><td>Equal to </td><td style="text-align:right">'+DateFormat.format(hour)+'</td><td> hour...</td></tr>';
+	godks += '<tr><td>Equal to </td><td style="text-align:right">'+DateFormat.format(min)+'</td><td> min...</td></tr>';
+	godks += '<tr><td>Equal to </td><td style="text-align:right">'+DateFormat.format(sec)+'</td><td> sec...</td></tr></tbody></table>';
+	document.getElementById('SPMcountdown').innerHTML = godks;
+}
+</script>
+<script>
+startcountdowntrialspm("29 august 2012", "Trial SPM");
+startcountdownspm("5 November 2012", "Real SPM!!!");
+</script>
+</body>
+</html>

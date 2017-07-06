@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="playerStyle.css"/>
+	<script src="VideoFadzJS.js"></script>
+</head><body>
+<center>
+	<section id="playerskin">
+		<div id="theVideoElement">
+			<video id="theMovie" width="640" height="390" style="background:black;">
+				<source id="theMySource" src="video/bunny.mp4" type="video/mp4;"/>
+			</video>
+		</div>
+		<nav>
+			<div id="myVidButton">
+				<button id="playPause">Play</button>
+			</div>
+			<div id="totalVidTime">
+				<div id="buffererBar"><div id="currentVidTime"></div></div>
+			</div>
+			<div id="volumeAdjuster" onmouseover="document.getElementById('volumeBar').style.display='block';document.getElementById('showCurrnetTime').style.display='none';" onmouseout="document.getElementById('volumeBar').style.display='none';document.getElementById('showCurrnetTime').style.display='block';">
+			<div id="valumeMuter">@</div>
+				<div id="volumeBar" style="display:none;">
+					<div id="volumeValue"></div>
+				</div>
+			</div>
+			<div id="showCurrnetTime" style="display:block;">00:00/00:00</div>
+			<div style="clear:both;"></div>
+		</nav>
+	</section>
+</center>
+<script>siapDulu()</script>
+<input type="text" id="goToVid" value="Put a URL" style="color:#ccc;" onfocus="if(this.value=='Put a URL'){this.value='';this.style.color='#333';}" onblur="if(this.value==''){this.value='Put a URL';this.style.color='#ccc'}" size="70"/><input id="goToVidButton" type="button" onclick="if(document.getElementById('goToVid').value.search('http:\/\/')>=0&&document.getElementById('theMySource').src!=document.getElementById('goToVid').value){stopVid();document.getElementById('theMySource').src=document.getElementById('goToVid').value;document.getElementById('playerskin').innerHTML=document.getElementById('playerskin').innerHTML;siapDulu();}" value="Go"/>
+</body>
+</html>

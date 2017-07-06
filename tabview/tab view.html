@@ -1,0 +1,196 @@
+<html>
+<head>
+
+</head>
+<body>
+<style>
+#tableViewTab {
+width:233px;
+border:#363636 solid 1px;
+}
+td.tabViewButton {
+text-shadow:0 0 3px #0ff;
+cursor:pointer;
+}
+td.tabViewButtonOn {
+text-shadow:0 0 5px #0f0;
+cursor:pointer;
+background:#363636;
+}
+#tabViewsElement td {
+padding:5px 1px;
+border-right:1px;
+border-left:1px;
+border-style:solid;
+border-color:#363636;
+font-size:9px;
+}
+#elementViewsTab td {
+background:#363636;
+padding:5px;
+}
+</style>
+<script>
+function startTabView(){
+	var tabViewsElements = document.getElementById("tabViewsElement");
+	var elementViewsTabs = document.getElementById("elementViewsTab");
+	var tabViewsElementsTab = tabViewsElements.getElementsByTagName("td");
+	var elementViewsTabsTab = elementViewsTabs.getElementsByTagName("td");
+	for(var i=0;i<=elementViewsTabsTab.length;i++){
+		tabViewsElementsTab[i].setAttribute("onmousedown", "ShowTabFadz("+(i+1)+")");
+		elementViewsTabsTab[i].setAttribute("colspan", tabViewsElementsTab.length);
+	}
+}
+function ShowTabFadz(teaxis){
+	var tabViewsElements = document.getElementById("tabViewsElement");
+	var elementViewsTabs = document.getElementById("elementViewsTab");
+	var tabViewsElementsTab = tabViewsElements.getElementsByTagName("td");
+	var elementViewsTabsTab = elementViewsTabs.getElementsByTagName("td");
+	for(var i=0;i<=elementViewsTabsTab.length;i++){
+		if(i!=teaxis-1){
+			elementViewsTabsTab[i].style.display = "none";
+			tabViewsElementsTab[i].setAttribute("class", "tabViewButton");
+		}else{
+			elementViewsTabsTab[i].style.display = "table-cell";
+			tabViewsElementsTab[i].setAttribute("class", "tabViewButtonOn");
+		}
+	}
+}
+</script>
+<table id="tableViewTab" cellspacing="0" onmouseover="startTabView()">
+<tbody>
+<tr id="tabViewsElement">
+<td class="tabViewButtonOn">Follower</td>
+<td class="tabViewButton">Facebook</td>
+<td class="tabViewButton">YouTube</td>
+<td class="tabViewButton">NetworkedBlog</td>
+<td class="tabViewButton">Exchange</td>
+</tr>
+<tr id="elementViewsTab" style="display:table-row">
+<td style="display:table-cell;" colspan="5">
+<div id="Followers1-wrapper">
+<div style="margin-right:2px;">
+<script type="text/javascript">
+        if (!window.google || !google.friendconnect) {
+          document.write('<script type="text/javascript"' +
+              'src="http://www.google.com/friendconnect/script/friendconnect.js">' +
+              '</scr' + 'ipt>');
+        }
+      </script><script type="text/javascript" src="http://www.google.com/friendconnect/script/friendconnect.js"></script>
+<script type="text/javascript">
+      if (!window.registeredBloggerCallbacks) {
+        window.registeredBloggerCallbacks = true;
+
+        
+
+        
+        gadgets.rpc.register('requestReload', function() {
+          document.location.reload();
+        });
+
+        
+        gadgets.rpc.register('requestSignOut', function(siteId) {
+          
+          google.friendconnect.container.openSocialSiteId = siteId;
+          google.friendconnect.requestSignOut();
+        });
+      }
+    </script>
+<script type="text/javascript">
+    
+    function registerGetBlogUrls() {
+      gadgets.rpc.register('getBlogUrls', function() {
+        var holder = {};
+        
+          
+          
+          
+            holder.postFeed = "http://www.blogger.com/feeds/681321702681868231/posts/default";
+          
+          
+          
+            holder.commentFeed = "http://www.blogger.com/feeds/681321702681868231/comments/default";
+          
+          holder.currentBlogUrl = "http://hantujavascript.blogspot.com/";
+          holder.currentBlogId = "681321702681868231";
+        
+        return holder;
+      });
+    }
+  </script>
+<script type="text/javascript">
+  if (!window.registeredCommonBloggerCallbacks) {
+    window.registeredCommonBloggerCallbacks = true;
+
+    gadgets.rpc.register('resize_iframe', function(height) {
+      var el = document.getElementById(this['f']);
+      if (el) {
+        el.style.height = height + 'px';
+      }
+    });
+
+    
+    gadgets.rpc.register('set_pref', function() {});
+
+    registerGetBlogUrls();
+  }
+  </script>
+<div id="div-2m4by4qo9dk6" style="width: 100%; visibility: visible; " class="gadgets-gadget-container"><div id="gfc_iframe_2023804783_0_body"><iframe id="gfc_iframe_2023804783_0" name="gfc_iframe_2023804783_0" style="width: 100%; height: 244px; " frameborder="0" scrolling="no" allowtransparency="true" height="260"></iframe></div></div>
+<script type="text/javascript">
+    var skin = {};
+    skin['FACE_SIZE'] = '32';
+    skin['HEIGHT'] = "260";
+    skin['TITLE'] = "Followers";
+    skin['BORDER_COLOR'] = "transparent";
+    skin['ENDCAP_BG_COLOR'] = "transparent";
+    skin['ENDCAP_TEXT_COLOR'] = "#ffffff";
+    skin['ENDCAP_LINK_COLOR'] = "#ced0ff";
+    skin['ALTERNATE_BG_COLOR'] = "transparent";
+    
+    skin['CONTENT_BG_COLOR'] = "transparent";
+    skin['CONTENT_LINK_COLOR'] = "#ced0ff";
+    skin['CONTENT_TEXT_COLOR'] = "#ffffff";
+    skin['CONTENT_SECONDARY_LINK_COLOR'] = "#ced0ff";
+    skin['CONTENT_SECONDARY_TEXT_COLOR'] = "#666666";
+    skin['CONTENT_HEADLINE_COLOR'] = "#000000";
+    skin['FONT_FACE'] = "normal normal 13px Arial, Tahoma, Helvetica, FreeSans, sans-serif";
+    google.friendconnect.container.setParentUrl("/");
+    google.friendconnect.container["renderMembersGadget"](
+    {id: "div-2m4by4qo9dk6",
+     height: 260,
+     
+     
+     
+     site: "02340926374742945356",
+      
+     locale: 'en' },
+     skin);
+  </script>
+</div>
+</div>
+</td>
+<td style="display:none;">
+<center><iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FHantu-Javascript%2F190985270961177&amp;width=186&amp;colorscheme=dark&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=true&amp;height=305" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:186px; height:305px;" allowtransparency="true"></iframe></center>
+</td>
+<td style="display:none;">
+<iframe id="fr" src="http://www.youtube.com/subscribe_widget?p=HantuJavascript" style="overflow: hidden;height: 97px; width: 223px; border: 0;" scrolling="no" frameborder="0"></iframe>
+</td>
+<td style="display:none;">
+<div id='networkedblogs_nwidget_container' style='height:200px;padding-top:10px;'><div id='networkedblogs_nwidget_above'></div><div id='networkedblogs_nwidget_widget' style="border:1px solid #D1D7DF;background-color:#F5F6F9;margin:0px auto;"><div id="networkedblogs_nwidget_logo" style="padding:1px;margin:0px;background-color:#edeff4;text-align:center;height:21px;"><a href="http://networkedblogs.com/" target="_blank" title="NetworkedBlogs"><img style="border: none;" src="http://static.networkedblogs.com/static/images/logo_small.png" title="NetworkedBlogs"/></a></div><div id="networkedblogs_nwidget_body" style="text-align: center;"></div><div id="networkedblogs_nwidget_follow" style="padding:5px;"><a style="display:block;line-height:100%;width:90px;margin:0px auto;padding:4px 8px;text-align:center;background-color:#3b5998;border:1px solid #D9DFEA;border-bottom-color:#0e1f5b;border-right-color:#0e1f5b;color:#FFFFFF;font-family:'lucida grande',tahoma,verdana,arial,sans-serif;font-size:11px;text-decoration:none;" href="http://networkedblogs.com/blog/hantu_javascript/?ahash=1a1f2c1712f0bc423a06e17ca767064c">Follow this blog</a></div></div><div id='networkedblogs_nwidget_below'></div></div><script type="text/javascript"><!--
+if(typeof(networkedblogs)=="undefined"){networkedblogs = {};networkedblogs.blogId=886217;networkedblogs.shortName="hantu_javascript";}
+--></script><script src="http://nwidget.networkedblogs.com/getnetworkwidget?bid=886217" type="text/javascript"></script>
+</td>
+<td style="display:none;">
+<!--Start Exchange Banner Box-->
+<form action="http://beta.blogger.com/add-widget" target="_new" method="POST"><center><img src="http://3.bp.blogspot.com/-E2xilpK3Pb4/TkAAXbjn-RI/AAAAAAAAAQw/HvYvSuS01YM/s1600/banner%2B180x180.png" title="Dapatkan Kod Javascript Yang Hebat Dan Menarik Seperti Hack, Free Downloader, Web Editor, Password Hacker Dan Banyak Lagi Hanya Di www.hantujavascript.blogspot.com" style="width: 140px;height:140px;background: ;border:0px outset #000;" /><br /><textarea onclick="this.focus();this.select();" name="widget.content" style="background:#FF9;width: 140px;height: 80px;border:1px solid #555555;"><center><a href="http://hantujavascript.blogspot.com/" target="_blank" title="Dapatkan Kod Javascript Yang Hebat Dan Menarik Seperti Hack, Free Downloader, Web Editor, Password Hacker Dan Banyak Lagi Hanya Di www.hantujavascript.blogspot.com"><img src="http://3.bp.blogspot.com/-E2xilpK3Pb4/TkAAXbjn-RI/AAAAAAAAAQw/HvYvSuS01YM/s1600/banner%2B120x120.png" style="width: 140px;height:140px;background: ;border:1px outset #000;" /></a></center>
+<!--janganbuat laa-->
+<script type="text/javascript" src="js/hadiahpromoter.js"></script>
+<!--end-->
+</textarea><br /><input value="Promote Now" class="button" name="go" type="submit" /></center></form>
+<!--END Exchange Banner Box-->
+</td>
+</tr>
+</tbody>
+</table>
+</body>
+<html>

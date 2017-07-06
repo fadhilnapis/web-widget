@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>vm</title>
+<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+<script src="js/video%20player%20maker.js"></script>
+</head><body>
+<table width="450" onclick="resultingCode()" onkeyup="resultingCode()">
+<tbody>
+<tr>
+<td colspan="2"><div id="playerPreview"></div></td>
+</tr><tr>
+<td>url video<input type="button" onclick="addOneMoreUrl()" value="+"></input>:
+</td><td id="urlElement">
+	<div id="0-theurl" style="background:transparent;border:1px solid transparent;border-radius:5px;">
+	1<input type="text" value="http://" id="urlfield-0" size="14"></input><select id="videoption-0">
+	<option>video/mp4</option>
+	<option>video/ogg</option>
+	<option>video/webm</option>
+	</select>
+	</div>
+</td>
+</tr><tr>
+<td>width:</td>
+<td>
+<input type="text" id="videosizew" value="320" size="2"></input>
+</td>
+</tr><tr>
+<td>height:</td>
+<td>
+<input type="text" id="videosizeh" value="240" size="2"></input>
+</td>
+</tr><tr>
+<td>poster:</td>
+<td><input type="checkbox" checked onclick="if(this.checked==false){document.getElementById('videothumbnail').disabled=true}else{document.getElementById('videothumbnail').disabled=false}">
+<input type="text" id="videothumbnail" value="http://2.bp.blogspot.com/-_yYxeCeJTsc/T2ssggGglOI/AAAAAAAAAY4/bv9gWiWnAUo/s1600/first.png" size="14"></input>
+</td>
+</tr><tr>
+<td>loop:</td>
+<td>
+<input type="checkbox" id="videoloop" value="loop" checked></input>
+</td>
+</tr><tr>
+<td>autoplay:</td>
+<td>
+<input type="checkbox" id="videoautoplay" value="autoplay"></input>
+</td>
+</tr><tr>
+<td>controls:</td>
+<td>
+<input type="checkbox" id="videocontroller" value="controls" checked></input>
+</td>
+</tr><tr>
+<td>error mesage(HTML):</td>
+<td>
+<textarea id="videoerror" rows="4" cols="15">
+Your browser does not support the video tag.
+</textarea></td>
+</tr><tr>
+<td colspan="2"><button id="gopreview" onclick="previewPlayer()" disabled>Preview</button><button id="goseethecode" onclick="if(document.getElementById('ResultCode').style.display=='block'){document.getElementById('ResultCode').style.display='none';}else{document.getElementById('ResultCode').style.display='block';}" disabled>View Code!</button></td>
+</tr>
+</tbody>
+</table>
+<div id="ResultCode" style="width:400px;display:none;font-family:monospace">&lt;video loop controls poster="http://2.bp.blogspot.com/-_yYxeCeJTsc/T2ssggGglOI/AAAAAAAAAY4/bv9gWiWnAUo/s1600/first.png" height="240" width="320"&gt;<br>&nbsp;&lt;source src="http://" type="video/mp4"/&gt;<br>&nbsp;&lt;div&gt;<br>&nbsp;&nbsp;Your browser does not support the video tag.
+<br>&nbsp;&lt;/div&gt;<br>&lt;/video&gt;</div>
+</body>
+</html>

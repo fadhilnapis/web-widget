@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>Ads Slot Maker</title>
+<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+<script src="js/Advertisement%20Slot%20Maker.js"></script>
+</head>
+<body>
+<style>
+td.top, th.top {
+border-top:1px solid #000;
+}
+td.bottom, th.bottom {
+border-bottom:1px solid #000;
+}
+td.left, th.left {
+border-left:1px solid #000;
+}
+td.right, th.right {
+border-right:1px solid #000;
+}
+.adstable {
+border: 1px solid #8ec1da;
+background-color: #ddeef6;
+border-radius: 15px;
+-ms-box-shadow: inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;
+-o-box-shadow: inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;
+-webkit-box-shadow: inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;
+-moz-box-shadow: inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;
+color: #3985a8;
+text-shadow: 0 1px #fff;
+padding: 5px 30px;
+width:170px;
+height:340px;
+padding:10px;
+font-size:11px;
+}
+.adstable:hover {
+-ms-box-shadow: inset 0 1px 10px #fff, inset 0 -10px #cbe6f2, 0 0 5px #8ec1da;
+-o-box-shadow: inset 0 1px 10px #fff, inset 0 -10px #cbe6f2, 0 0 5px #8ec1da;
+-webkit-box-shadow: inset 0 1px 10px #fff, inset 0 -10px #cbe6f2, 0 0 5px #8ec1da;
+-moz-box-shadow: inset 0 1px 10px #fff, inset 0 -10px #cbe6f2, 0 0 5px #8ec1da;
+cursor:pointer;
+text-shadow: 0 1px #fff;
+}
+.adstitle {
+font-size:15px;
+}
+.adstable .adsthink {
+width:35%;
+border-radius: 15px;
+}
+.adstable td.none {
+width:1px;
+}
+.adsthumbnail {
+background-color: #cbe6f2;
+border-radius: 15px;
+-ms-box-shadow: inset 0 20px 50px #ddeef6, inset 0 1px -10px #cbe6f2;
+-o-box-shadow: inset 0 20px 50px #ddeef6, inset 0 1px -10px #cbe6f2;
+-webkit-box-shadow: inset 0 20px 50px #ddeef6, inset 0 1px -10px #cbe6f2;
+-moz-box-shadow: inset 0 20px 50px #ddeef6, inset 0 1px -10px #cbe6f2;
+color: #3985a8;
+text-shadow: 0 1px #fff;
+width:140px;
+height:140px;
+padding:5px
+}
+.adsans.rate {
+color:orange;
+}
+.adsans.size {
+font-size:14;
+}
+</style>
+
+<center><table cellspacing="0px" id="makererAds">
+<tbody>
+<tr>
+<th colspan="3" class="top left right">Slot Maker</th>
+</tr><tr>
+<th colspan="3" class="top left right" style="padding:5px;">
+<center>
+<table class="adstable" cellspacing="0px">
+<tbody class="adsbody">
+<tr><th colspan="3" class="adstitle" id="oslotname">Slot 1</th></tr>
+<tr><th colspan="3" class="adsthumbnail">
+<center><div style="border:1px solid #000;width:120px;height:24px;display:table-cell;vertical-align:middle;" id="exampleBanner">400&times;80</div></center></th></tr>
+<tr><td class="adsthink">Rate</td><td class="none">:</td><td class="adsans rate" id="aboutRate">&#9733;&#9733;&#9733;&#9733;&#9733;</td></tr>
+<tr><td class="adsthink">Vacancy</td><td class="none">:</td><td class="adsans vacancy" id="aboutVacancy">2</td></tr>
+<tr><td class="adsthink">Location</td><td class="none">:</td><td class="adsans location" id="aboutLocation">top, beside title, below navbar.</td></tr>
+<tr><td class="adsthink">Size</td><td class="none">:</td><td class="adsans size" id="aboutFracSize">1&times;<sup><font size=-2>1</font></sup>/<sub><font size=-2>5</font></sub></td></tr>
+<tr><td class="adsthink">Price</td><td class="none">:</td><td class="adsans price" id="aboutOfferPrice">RM11.00/1month<br>RM19.00/2month</td></tr>
+</tbody>
+</table>
+</center>
+</th>
+<td class="top bottom right" colspan="3" id="onetable" style="display:none"><center><textarea cols="25" rows="20" id="outputtext"></textarea></center></td>
+</tr><form><tr>
+<td class="top left bottom">Slot</td>
+<td class="top bottom none">:</td>
+<td class="top right bottom"><input onchange="updatPrevieAdSlot(event)" type="number" value="1" id="islotfadz" max="50" min="1" required="required"/></td>
+</tr><tr>
+<td class="left bottom">Size</td>
+<td class="bottom none">
+width:<br/>
+heigth:</td>
+<td class="right bottom">
+<input onchange="updatPrevieAdSlot(event)" type="number" value="400" max="700" min="1" id="iwsizefad" maxlength="3" required="required"/><br/>
+<input onchange="updatPrevieAdSlot(event)" type="number" value="80" max="700" min="1" id="ihsizefad" maxlength="3" required="required"/></td>
+</tr><tr>
+<td class="left bottom">Rate</td>
+<td class="bottom none">:</td>
+<td class="right bottom"><input onchange="updatPrevieAdSlot(event)" type="range" max="5" id="iratefadz" maxlength="1" min="0" value="5" required="required"/></td>
+</tr><tr>
+<td class="left bottom">Vacancy</td>
+<td class="bottom none">:</td>
+<td class="right bottom"><input onchange="updatPrevieAdSlot(event)" type="number" value="2" id="ivcncyfad" max="6" min="1" maxlength="1" required="required"/></td>
+</tr><tr>
+<td class="left bottom">Location</td>
+<td class="bottom none">:</td>
+<td class="right bottom"><textarea onchange="updatPrevieAdSlot(event)" cols="14" rows="3" id="ilocalfad" required="required">top, beside title, below navbar.</textarea></td>
+</tr><tr>
+<td class="bottom left">Price</td>
+<td class="bottom none">RM<br/>RM</td>
+<td class="bottom right">
+<input onchange="updatPrevieAdSlot(event)" type="number" value="11" style="text-align:right" id="ifpricfad" required="required"  max="60" min="1" maxlength="2"/>.00/1month<br/>
+<input onchange="updatPrevieAdSlot(event)" type="number" value="19" style="text-align:right" id="inpricfad" required="required" max="60" min="1" maxlength="2"/>.00/2month</td>
+</tr><tr>
+<td class="bottom left right" colspan="3" style="text-align:center">
+<input onchange="updatPrevieAdSlot(event)" type="button" value="Customize" id="customall" onclick="creatAdsSlot()">
+<input onchange="updatPrevieAdSlot(event)" type="button" value="Update" onclick="updatPrevieAdSlot()">
+<input onclick="document.getElementById('onetable').style.display ='none';" type="reset" value="Reset">
+</td>
+</tr><tr>
+</tr></form>
+</tbody>
+</table></center>
+</body>
+</html>

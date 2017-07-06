@@ -1,0 +1,10 @@
+<html>
+<head>
+</head><body>
+<script src="js/o2jammapsmaker.js"></script>
+<input type="text" id="sourcesound" value="../o2jam/cs/Diana Boncheva feat. BanYa - Beethoven Virus Full Version.mp3" onblur="soundmp3=new Audio(this.value);"/><br>
+<input type="button" value="record" onclick="soundmp3.currentTime=0;soundmp3.play();document.getElementById('slass').value='';document.getElementById('slass').setAttribute('onkeydown','createNoteJam(this,\'d\');return false;');document.getElementById('slass').setAttribute('onkeyup','createNoteJam(this,\'u\');return false;');document.getElementById('slass').focus();"></input>:<span id="dsa"></span>
+<br>
+<textarea id="slass" rows="10" cols="150"></textarea>
+</body>
+</html>

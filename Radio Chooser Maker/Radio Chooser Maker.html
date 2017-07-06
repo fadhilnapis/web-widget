@@ -1,0 +1,73 @@
+<html>
+<head>
+</head><body>
+<script>
+	var embedWidthFadz = 200;
+	var embedHeightFadz = 100;
+	var radiosinar = false;
+	var radioera = false;
+	var radiohot = false;
+	var radiohitz = false;
+	var radiox = false;
+	var radiothrgegar = false;
+	var radiolite = false;
+	var radiomy = false;
+</script>
+<script src="js/RadioChooserMaker.js"></script>
+<script src="js/RadioChooserfunction.js"></script>
+<center>
+<div id="previewStyleRadioGadget"></div>
+<div id="previewThisRadioGadget"></div>
+<fieldset style="padding: 5px 10px; width: 400px;">
+<legend align="top">Radio Option</legend>
+<table style="width: 400px;">
+	<tbody>
+		<tr>
+			<td>Radio Available:</td>
+			<td><input type="checkbox" checked id="allowSinarRadio"></input><label for="allowSinarRadio">Sinar.fm</label><br/><input type="checkbox" checked id="allowEraRadio"></input><label for="allowEraRadio">Era.fm</label><br/><input type="checkbox" checked id="allowHotRadio"></input><label for="allowHotRadio">Hot.fm</label><br/><input type="checkbox" checked id="allowHitzRadio"></input><label for="allowHitzRadio">Hitz.fm</label><br/><input type="checkbox" checked id="allowXRadio"></input><label for="allowXRadio">X.fm</label><br/><input type="checkbox" checked id="allowThrGegarRadio"></input><label for="allowThrGegarRadio">ThrGegar</label><br/><input type="checkbox" checked id="allowliteRadio"></input><label for="allowliteRadio">lite.fm</label><br/><input type="checkbox" checked id="allowMyRadio"></input><label for="allowMyRadio">My.fm</label></td>
+		</tr>
+		<tr>
+			<td>Default Radio</td>
+			<td>: <select id="radioChooserMaker" onmousedown="optionChangeSelectedRadio()">
+				<option>Sinar.fm</option>
+				<option>Era.fm</option>
+				<option>Hot.fm</option>
+				<option>Hitz.fm</option>
+				<option>X.fm</option>
+				<option>ThrGegar</option>
+				<option>lite.fm</option>
+				<option>My.fm</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td>Auto Play</td>
+			<td>:<input type="checkbox" id="allowAutoPlay"></input><label for="allowAutoPlay">Allow</label></td>
+		</tr>
+		<tr>
+			<td>Background image</td>
+			<td>:<input type="text" id="radioBackgroundImage" value="http://24.media.tumblr.com/tumblr_l51zs1BHaJ1qcs5eyo1_500.png" size="30" onkeydown="return noSpaceHere(event)"></input></td>
+		</tr>
+		<tr>
+			<td>Background color</td>
+			<td>:<input type="text" id="radioBackgroundColor" value="#A52A2A" size="5" maxlength="7" onkeydown="if(this.value.search('#')!=-1){this.maxLength=7;return codeHexOnly(event)}else{this.maxLength=30;}"></input></td>
+		</tr>
+		<tr>
+			<td>Radio Width</td>
+			<td>:<input type="200" id="radioWidth" value="200" size="3" maxlength="3" onkeydown="return numberOnly(event);"></input>px</td>
+		</tr>
+		<tr>
+			<td>Radio Height</td>
+			<td>:<input type="text" id="radioHeight" value="100" size="3" maxlength="3" onkeydown="return numberOnly(event);"></input>px</td>
+		</tr>
+		<tr>
+			<td>Border Curve</td>
+			<td>:<input type="text" id="rdioBorderCurve" value="20" size="3" maxlength="2" onkeydown="return numberOnly(event);"></input>px</td>
+		</tr>
+	</tbody>
+</table>
+</fieldset>
+<input type="button" value="Customize" onclick="customizeTheRadiosWidget();previewTheRadioGadget();"/><input type="button" value="Reset" onclick="resetMyRadioOptionNow();previewTheRadioGadget();"/><input type="button" value="Preview" onclick="previewTheRadioGadget()"/><br>
+<textarea style="width:350px;height:200px;display:none;" id="allRadioOptioanOutput" onclick="this.focus();this.select();"></textarea>
+</center>
+</body>
+</html>

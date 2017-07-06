@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html b:version="2" class="v2" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">
+<head>
+<script src='http://code.jquery.com/jquery-1.6.4.min.js'></script>
+</head>
+<body>
+<style>
+#forceload{
+background:#eee;
+border:solid 1px #888;
+padding:10px;
+cursor:pointer;
+margin-top:-20px;
+text-shadow:0px 1px 0px #fff;
+box-shadow:inset 0px -5px 15px #ccc;
+-moz-box-shadow:inset 0px -5px 15px #ccc;
+-webkit-box-shadow:inset 0px -5px 15px #ccc;
+border-radius:3px;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+}
+#forceload:hover{
+background:#fff;
+box-shadow:inset 0px -5px 15px #bdb;
+-moz-box-shadow:inset 0px -5px 15px #bdb;
+-webkit-box-shadow:inset 0px -5px 15px #bdb;
+}
+#forceload:active{
+background:#ddd;
+box-shadow:inset 0px 5px 15px #aaa;
+-moz-box-shadow:inset 0px 5px 15px #aaa;
+-webkit-box-shadow:inset 0px 5px 15px #aaa;
+}
+</style>
+<div id="loadingcenter">
+</div>
+<script src="js/LoadGate.js"></script>
+<audio id="welcome" src="js/Sci fi computer PA young female voice says welcome_BLASTWAVEFX_28193.mp3" type="audio/mpeg"></audio>
+<script>
+var diwload={
+imgURLU:"http://1.bp.blogspot.com/-HHlV8rtkE_E/UNq-vuc45FI/AAAAAAAAAmE/k8aCHtEG01s/s1600/Gate+Top.png",
+imgURLD:"http://4.bp.blogspot.com/-CXHUBIvLHEA/UNq-tcoRJqI/AAAAAAAAAl8/x2oIlN3jNqY/s1600/Gate+Bottom.png",
+text:"Force Open",
+waitsec:10
+}
+writeDivLoad();
+$(window).ready(function(){
+var d1=false,d2=false;
+$("#load1").ready(function(){d1=true;tryaror()})
+$("#load2").ready(function(){d2=true;tryaror()})
+function tryaror(){if(d1&&d2){setTimeout("starOpen();",1000)}}});
+</script>
+test text
+</body>
+</html>

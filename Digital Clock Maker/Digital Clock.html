@@ -1,0 +1,96 @@
+<html>
+<head>
+</head><body><!--******//////////////////////////////////////******-->
+<script src="js/digitalclockfunction.js"></script>
+<script>
+var trueTheAMPM = true;
+</script>
+<script src="js/DigitalClockMaker.js"></script>
+<center>
+<div id="gadgetStylePort">
+<style>
+#previewGadget #clocktable {
+	background:yellow;
+	border-radius:10px;
+	border-spacing: 5px;
+	-webkit-box-shadow:0 1px 15px #ff0, inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+	-moz-box-shadow:0 1px 15px #ff0, inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+	-khtml-box-shadow:0 1px 15px #ff0, inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+	-o-box-shadow:0 1px 15px #ff0, inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+	box-shadow:0 1px 15px #ff0, inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+}
+#previewGadget #clocktable td {
+	background:#006;
+	color:#0f0;
+	text-shadow:1px 1px 1px blue;
+}
+#previewGadget #clocktable td {
+	-webkit-box-shadow:0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25);
+	-moz-box-shadow:0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25);
+	box-shadow:0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25);
+	font-size:26px;
+	font-family:monospace;
+	font-weight:bold;
+	border-radius:10px;
+	padding:5px;
+}
+</style>
+</div>
+<div id="previewGadget">
+<center>
+<div style="padding:5px;">
+<table id="clocktable">
+<tbody>
+<tr>
+	<td class="clock"></td>
+	<td class="seconds" style="font-size:10px;line-height:9px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</center>
+</div>
+<fieldset style="padding: 5px 10px; width: 400px;">
+<legend align="top">Clock Style</legend>
+<table style="padding: 5px 10px; width: 400px;">
+	<tbody>
+		<tr>
+			<td><label for="caseColorGadget">Case Color: </label></td>
+			<td><input id="caseColorGadget" type="text" value="yellow" size="5" maxlength="30" onkeydown="if(this.value.search('#')!=-1){this.maxLength=7;return codeHexOnly(event);}else{this.maxLength=30;}"/></td>
+		</tr>
+		<tr>
+			<td><label for="clockShadowGadget">Clock Shadow Color: </label></td>
+			<td><input id="clockShadowGadget" type="text" value="#ff0" size="5" maxlength="30" onkeydown="if(this.value.search('#')!=-1){this.maxLength=7;return codeHexOnly(event);}else{this.maxLength=30;}"/></td>
+		</tr>
+		<tr>
+			<td><label for="screenBackground">Screen Background: </label></td>
+			<td><input id="screenBackground" type="text" value="#006" size="5" maxlength="30" onkeydown="if(this.value.search('#')!=-1){this.maxLength=7;return codeHexOnly(event);}else{this.maxLength=30;}"/></td>
+		</tr>
+		<tr>
+			<td><label for="textColorGadget">Text Color: </label></td>
+			<td><input id="textColorGadget" type="text" value="lime" size="5" maxlength="30" onkeydown="if(this.value.search('#')!=-1){this.maxLength=7;return codeHexOnly(event);}else{this.maxLength=30;}"/></td>
+		</tr>
+		<tr>
+			<td><label for="textShadowGadget">Text Shadow Color: </label></td>
+			<td><input id="textShadowGadget" type="text" value="blue" size="5" maxlength="30" onkeydown="if(this.value.search('#')!=-1){this.maxLength=7;return codeHexOnly(event);}else{this.maxLength=30;}"/></td>
+		</tr>
+		<tr>
+			<td><label for="screenSpaceGadget">Screen Space: </label></td>
+			<td><input id="screenSpaceGadget" type="text" value="5" size="1" maxlength="2" onkeydown="return numberOnly(event);"/>px</td>
+		</tr>
+		<tr>
+			<td><label for="clockCurveGadget">Clock Curve: </label></td>
+			<td><input id="clockCurveGadget" type="text" value="10" size="1" maxlength="2" onkeydown="return numberOnly(event);"/>px</td>
+		</tr>
+		<tr>
+			<td><label for="clockAmPmAllow">Clock am/pm: </label></td>
+			<td><input id="clockAmPmAllow" type="checkbox" checked />Allow</td>
+		</tr>
+	</tbody>
+</table>
+</fieldset>
+<input type="button" value="Customize" onclick="customizeNowGadget();goPreviewGadget();" /><input type="button" value="Reset" onclick="cancelAndResetGadget();goPreviewGadget();"/><input type="button" value="Preview" onclick="goPreviewGadget()"/><br>
+<textarea style="width:200px;height:100px;display:none;" id="allDoneGoHere" onclick="this.focus();this.select();"></textarea>
+</center>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html b:version="2" class="v2" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">
+<head>
+<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<style type="text/css">
+div#menu { margin: 0px auto; }
+
+/* menu::base */
+div#menu {
+    height:55px;
+    position: relative;
+    background:url(http://sites.google.com/site/hantujavascript/javascript-project/nav-bg.png) repeat-x;
+    _background:url(http://sites.google.com/site/hantujavascript/javascript-project/nav-bg.gif) repeat-x;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+div#menu ul {
+    padding: 0px;
+    list-style: none;
+}
+
+div#menu li {
+    position: relative;
+    z-index: 9;
+    margin: 0;
+    padding: 0;
+    display: block;
+    float: left;
+}
+   
+div#menu li:hover>ul {
+    left: -2px;
+}
+
+div#menu li div {
+    list-style: none;
+    float: left;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 208px;
+    z-index: 11;
+    visibility: hidden;
+    padding: 0 0 9px 7px;
+    _padding: 0 0 9px 3px;
+    background: url(http://sites.google.com/site/hantujavascript/javascript-project/submenu-bottom.png) no-repeat 7px bottom;
+    _background-image: url(http://sites.google.com/site/hantujavascript/javascript-project/submenu-bottom.gif);
+    margin: 0 0 0 -9px;
+}
+div#menu li:hover>div {
+    visibility: visible;
+}
+
+div#menu li.current a {}
+
+/* menu::level1 */
+div#menu a {
+    position: relative;
+    z-index: 10;
+    height: 55px;
+    display: block;
+    float: left;	
+    padding: 0 10px 0 10px;
+    line-height: 55px;
+    text-decoration: none;
+}
+div#menu span {
+    font: normal 12px 'Lucida Sans Unicode','Lucida Grande',Helvetica,Arial,sans-serif;
+    padding-top: 18px;
+    color: #dbff92;
+    font-weight:bold;
+    text-transform:uppercase;
+    display: block;
+    cursor: pointer;
+    background-repeat: no-repeat;		
+}
+div#menu ul a:hover span {
+    color: #455821;
+}
+
+div#menu li { background: url(http://sites.google.com/site/hantujavascript/javascript-project/nav_separator.png) top left no-repeat; }
+div#menu li.last span{
+    background: url(http://sites.google.com/site/hantujavascript/javascript-project/nav_separator.png) top right no-repeat;
+    padding: 18px 10px 16px 0;
+}
+
+/* menu::level2 */
+div#menu ul ul li {
+    background: url(http://sites.google.com/site/hantujavascript/javascript-project/nav_dropdown_sep.gif) left bottom repeat-x;
+    padding: 4px 0;
+    z-index: 9;	
+}
+div#menu ul ul {
+    z-index: 12;	
+    padding: 0;
+    background: rgb(102,136,35) url(http://sites.google.com/site/hantujavascript/javascript-project/nav_dropdown_grad.png) right top no-repeat;
+    margin-top:0px;
+    margin-left:4px;
+    margin-right:5px;
+}
+div#menu ul ul a {
+  	width: 184px;
+	  padding: 0px 7px 3px 8px;
+    height: auto;
+    float: none;
+    display: block;
+    background:none;
+    margin-bottom: 2px;
+    z-index: -1;
+}
+div#menu ul ul a span {
+	  padding: 0 10px 0px 10px;
+    line-height: 20px;
+    color: #364619;
+    font-weight:normal;
+    text-transform: none;
+    background:none;
+}
+div#menu ul ul a:hover {
+    background: url(http://sites.google.com/site/hantujavascript/javascript-project/submenu-selected-bottom.gif) no-repeat 8px bottom;
+}
+div#menu ul ul a:hover span {
+    background: url(http://sites.google.com/site/hantujavascript/javascript-project/submenu-selected-top.gif) no-repeat 0px 0px;
+    color: #fff;
+}
+
+div#menu ul ul li.last { background: none; }
+div#menu ul ul li {
+    width: 100%;
+}
+
+/* menu::level3 */
+div#menu ul ul div {
+    width: 208px;
+    margin: -50px 0 0 190px !important;
+    height: auto;
+    _padding: 0 0 9px 3px;
+}
+div#menu ul ul ul {
+	_padding-right:1px;
+}
+
+/* lava lamp */
+div#menu li.back {
+}
+div#menu li.back .left {
+}
+.jump-link {
+display:inline-block;
+width:100%;
+text-align:center;
+}
+.jump-link a{
+    text-decoration: none;
+    color:#3778CD;
+    border: 1px solid #aaa;
+    padding: 3px 10px;
+    background: #dff;
+}
+.jump-link a:hover{
+    background: #eff;
+}
+.jump-link a:active{
+    background: #eef;
+}
+.jump-link-mobile a{
+    margin-top:10px;
+    float: right;
+    padding: 5px 0px;
+    width:100%;
+    border: 2px outset #CFCFCF;
+    border-radius: 5px 5px 20px 20px;
+    font-weight: bold;
+    background: #D5D5D5;
+}
+</style>
+</head>
+<body>
+<script src="js/pagemenu.js"></script>
+<script>
+var sl=[{//0
+		name:"Home",
+		link:"//hantujavascript.blogspot.com/"
+	},
+	{//1
+		name:"About HJS",
+		link:"/p/about-me-and-my-blog.html"
+	},
+	{//2
+		name:"My App",
+		link:[{//2.0
+				name:"Byte Converter",
+				link:"/p/byte-converter.html"
+			},{//2.1
+				name:"Life Time Checker",
+				link:"/2012/04/life-time-checker-my-app.html"
+			},{//2.2
+				name:"Widget",
+				link:[]
+			}
+		]
+	},
+	{//3
+		name:"Media &amp; Fun",
+		link:[{//3.0
+				name:"Listen Radio",
+				link:"/p/listen-radio.html"
+			},{//3.1
+				name:"Games",
+				link:[{//3.1.0
+					name:"Bounce",
+					link:"/p/bounce.html"
+				}
+				]
+			}
+		]
+	},
+	{//4
+		name:"Help",
+		link:[{//4.0
+				name:"Site Map",
+				link:"/p/site-map_21.html"
+			},{//4.1
+				name:"I Wanna Share",
+				link:""
+			},{//4.2
+				name:"I Want To Request",
+				link:""
+			}
+		]
+	}
+	];
+</script>
+<div id='menu'></div>
+<script src="http://hantujavascript.blogspot.com/feeds/posts/default/?max-results=9999&alt=json-in-script&callback=startRimPage"></script>
+</body>
+</html>

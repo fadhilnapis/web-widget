@@ -1,0 +1,54 @@
+<html>
+<head>
+</head>
+<body><!--Digital Clock Fadz Start-->
+<style>
+#clocktable {
+	background:yellow;
+	border-radius:10px;
+	border-spacing:5px;
+	-webkit-box-shadow:0 1px 15px #ff0, inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+	-moz-box-shadow:0 1px 15px #ff0, inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+	-khtml-box-shadow:0 1px 15px #ff0, inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+	-o-box-shadow:0 1px 15px #ff0, inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+	box-shadow:0 1px 15px #ff0, inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+}
+#clocktable td {
+	background:#006;
+	color:lime;
+	text-shadow:1px 1px 1px blue;
+	border-radius:10px;
+	-webkit-box-shadow:0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25);
+	-moz-box-shadow:0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25);
+	box-shadow:0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25);
+	font-size:26px;
+	font-family:monospace;
+	font-weight:bold;
+	border-radius:10px;
+	padding:5px;
+}
+</style><script>
+function clockDigitalfadz(meko, tiko, miko){
+document.getElementById(meko).width = tiko;document.getElementById(meko).style.display = miko;
+}</script><script src="js/digital%20clock%20function.js"></script>
+<script>
+	var trueTheAMPM = true;
+</script>
+<center>
+<div style="padding:5px;">
+<div onmouseover="clockDigitalfadz('showbannercdf', '72', 'inline');" onmouseout="clockDigitalfadz('showbannercdf', '0', 'inline');" style="display:table-cell;">
+<table id="clocktable">
+<tbody>
+<tr>
+	<td class="clock"></td>
+	<td class="seconds" style="font-size:10px;line-height:9px;"></td>
+</tr>
+</tbody>
+</table>
+<div align="right"><a href="http://hantujavascript.blogspot.com/" target="_blank"><img border="0" height="18px" id="showbannercdf" src="http://3.bp.blogspot.com/-uYZ-8Scpmsw/TihGZAvsOqI/AAAAAAAAAPw/iTSVZSrQt5I/s400/HantuJavscript+Logos.png" width="0px" style="display:inline;"/>
+</a></div></div>
+</div>
+</center>
+<!--Digital Clock Fadz END-->
+</body>
+</html>

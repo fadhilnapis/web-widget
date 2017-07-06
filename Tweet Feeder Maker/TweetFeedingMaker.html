@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<script src='../jpicker-1.1.6/jquery-1.4.4.min.js'></script>
+<script src='jquery-ui.js'></script>
+<script src='C:/Users/Fadz/Downloads/Compressed/jscolor-1.4.1/jscolor/jscolor.js'></script>
+<script src="js/HashTagFeedingMaker.js"></script>
+</head>
+<body>
+<style>
+.range{
+	display: inline-block;
+	height:5px;
+	position:relative;
+	background:#999;
+	margin:3px 10px;
+	cursor:pointer;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+.ui-slider-handle{
+	height:10px;
+	width:10px;
+	position:absolute;
+	background:#333;
+	margin:-3px -3px;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+#vidstartfeed{
+	border: 1px solid #ccc;
+	border-radius: 14px;
+	display: inline-block;
+	text-align:left;
+	font-size: 16px;
+	font-weight: normal;
+}
+.vidnewtweet{
+	position: relative;
+	padding: 6px 6px;
+	font-family: Arial,sans-serif;
+	font-size: 11px;
+	line-height: 15px;
+	cursor:pointer;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+}
+.vidnewtweet:hover{
+	background-color: rgba(0,0,0,0.05);
+}
+.vidallchatsect{
+	overflow: auto;
+}
+.vidtweetcontent{
+	margin-left: 43px;
+}
+.viduserlink{
+	text-decoration: none;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+}
+.viduserthumb{
+	position: absolute !important;
+	-webkit-border-radius: 5px !important;
+	-moz-border-radius: 5px !important;
+	border-radius: 5px !important;
+	border: none !important;
+	padding: 0px !important;
+	margin:0px !important;
+}
+.viduserlink:hover .vidfullname{
+	text-decoration: none;
+}
+.vidfullname{
+	font-weight: bold;
+}
+.vidtweettext{
+	color:#000;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	cursor:default;
+}
+.vidtweettext a{
+	text-decoration: none;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+}
+.vidtweettext a:hover{
+	text-decoration: underline;
+}
+.vidchatdate{
+	float:both;
+	text-align:right;
+	display: inline-block;
+	width: 75%;
+}
+.vidrplybtn{
+	font-size: 9px;
+	text-align: left;
+	display: inline-block;
+	width: 25%;
+}
+.vidrplybtn:hover{
+	text-decoration: underline;
+}
+.vidshoutbtn{
+    padding: 5px 0px 0px 0px;
+	cursor:pointer;
+    height: 30px;
+    margin: 0px -1px;
+    text-align: center;
+    border-radius: 14px 14px 0px 0px;
+    -moz-border-radius: 14px 14px 0px 0px;
+    -webkit-border-radius: 14px 14px 0px 0px;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+}
+#vidsoundmuter{
+	height:16px;
+	width:14px;
+	cursor:pointer;
+}
+.vidsoundmuter{
+	margin: 0px -1px;
+	padding: 1px 7px;
+}
+.viduserthumb{
+top:7px;
+left: 6px;
+width:35px;
+height:35px;
+}
+</style>
+<style id="styleWidTwits">
+.vidshoutbtn{
+text-shadow: 1px 2px 3px #FFF;
+box-shadow: inset 0px 10px rgba(255, 255, 255, 0.35), inset 0px -9px 20px rgba(0, 0, 0, 0.35);  
+-moz-box-shadow: inset 0px 10px rgba(255, 255, 255, 0.35), inset 0px -9px 20px rgba(0, 0, 0, 0.35);  
+-webkit-box-shadow: inset 0px 10px rgba(255, 255, 255, 0.35), inset 0px -9px 20px rgba(0, 0, 0, 0.35);
+}
+.vidshoutbtn:hover{
+text-shadow: 1px 2px 4px #FFF;
+box-shadow: inset 0px 12px rgba(255, 255, 255, 0.35), inset 0px -11px 22px rgba(0, 0, 0, 0.35);  
+-moz-box-shadow: inset 0px 12px rgba(255, 255, 255, 0.35), inset 0px -11px 22px rgba(0, 0, 0, 0.35);  
+-webkit-box-shadow: inset 0px 12px rgba(255, 255, 255, 0.35), inset 0px -11px 22px rgba(0, 0, 0, 0.35);
+}
+.vidshoutbtn:active{
+text-shadow: 1px 1px 2px #FFF;  
+box-shadow: inset 0px 8px rgba(255, 255, 255, 0.35), inset 0px -10px 18px rgba(0, 0, 0, 0.35);  
+-moz-box-shadow: inset 0px 8px rgba(255, 255, 255, 0.35), inset 0px -10px 18px rgba(0, 0, 0, 0.35);  
+-webkit-box-shadow: inset 0px 8px rgba(255, 255, 255, 0.35), inset 0px -10px 18px rgba(0, 0, 0, 0.35);
+}
+.vidsoundmuter{
+	box-shadow: inset 0px 5px 13px rgba(0, 0, 0, 0.36);
+	-moz-box-shadow: inset 0px 5px 13px rgba(0, 0, 0, 0.36);
+	-webkit-box-shadow: inset 0px 5px 13px rgba(0, 0, 0, 0.36);
+}
+#vidstartfeed{
+background: #39d;
+}
+.vidshoutbtn{
+color: #333;
+}
+.vidtweettext{
+	color:#000;
+}
+.vidallchatsect{
+	background: #fff;
+}
+.vidtweettext a{
+	color: #0084B4;
+}
+.vidfullname{
+	color: #333;
+}
+.viduserlink:hover .vidfullname{
+	color: #0084B4;
+}
+.vidchatdate{
+	color: #999;
+}
+.vidrplybtn{
+	color: #999;
+}
+.vidnewtweet{
+	border-bottom: 1px solid #e8e8e8;
+}
+.vidnewtweet:hover .vidrplybtn{
+	color: #0084B4;
+}</style>
+<table id="secnsc" style="display: none;background: #fff;position: absolute;margin-left: 531px;z-index:2;" border="1">
+<tbody>
+<tr><td status='a' style="cursor:pointer;text-align:center;background:rgba(0,0,0,0.1)" colspan="2" onclick="toggleAdvance(this)">Advance</td></tr>
+<tr><td colspan="2">Background And Border</td></tr>
+<tr><td>Outer Back</td><td><input type="text" class="cchoser" cassa="background" changesd="#vidstartfeed" title="Outer Background" size="6" value="3399dd" onchange="changeItWid()"></input></td></tr>
+<tr><td>Inner Back</td><td><input type="text" class="cchoser" cassa="background" changesd=".vidallchatsect" size="6" value="ffffff" onchange="changeItWid()"></input></td></tr>
+<tr><td>Outer Border</td><td><input type="text" class="cchoser" cassa="border" changesd="#vidstartfeed" size="6" value="cccccc" onchange="changeItWid()"></input></td></tr>
+<tr><td>Inner Border</td><td><input type="text" class="cchoser" cassa="border-bottom" changesd=".vidnewtweet" size="6" value="e8e8e8" onchange="changeItWid()"></input></td></tr>
+<tr><td colspan="2">Text Color</td></tr>
+<tr><td>Default</td><td><input type="text" class="cchoser" cassa="color" changesd=".vidtweettext" size="6" value="000000" onchange="changeItWid()"></input></td></tr>
+<tr><td>Unfocus</td><td><input type="text" class="cchoser" cassa="color" changesd=".vidchatdate, .vidrplybtn" size="6" value="999999" onchange="changeItWid()"></input></td></tr>
+<tr><td>Link</td><td><input type="text" class="cchoser" cassa="color" changesd=".vidtweettext a, .viduserlink:hover .vidfullname, .vidnewtweet:hover .vidrplybtn" size="6" value="0084B4" onchange="changeItWid()"></input></td></tr>
+<tr><td>Shout Button</td><td><input type="text" class="cchoser" cassa="color" changesd=".vidshoutbtn" size="6" value="333333" onchange="changeItWid()"></input></td></tr>
+<tr><td>Nickname</td><td><input type="text" class="cchoser" cassa="color" changesd=".vidfullname" size="6" value="333333" onchange="changeItWid()"></input></td></tr>
+<tr><td colspan="2">Other</td></tr>
+<tr><td>While Loading Text</td><td><input type="text" size="20" id="loadingtext" value="Loading...&lt;br&gt;&lt;img src&#61;&quot;https://abs.twimg.com/a/1366303520/t1/img/loader.gif&quot; height&#61;&quot;20&quot;/&gt;" onchange="changeItWid()" onchange="changeItWid()"></input></td></tr>
+<tr><td>Allow Shadow</td><td><input type="checkbox" id="alowshadow" checked onclick="changeItWid()" onchange="changeItWid()"></input></td></tr>
+</tbody>
+</table>
+<table border="1" style="font-size:12px;font-weight:bold">
+<tbody>
+<tr><td colspan="2" style="text-align: center;width:457px;height:430px">
+<div style="background: url(http://3.bp.blogspot.com/-Eu-cwAof-HU/UYPevliJvbI/AAAAAAAAAuI/fWXlrNl4Fok/s1600/Example+100.png) no-repeat;width: 100px;height: 100px;margin: -34px -9px;position: absolute;"></div>
+<div id="vidstartfeed" style="width:200px;padding-bottom: 20px;"><div class="vidshoutbtn">Shout!</div><div class="vidsoundmuter"><div id="vidsoundmuter" style="background:url(http://png-5.findicons.com/files/icons/770/token_dark/16/sound.png);cursor:pointer;"></div></div><div class="vidallchatsect" id="vidallchats" style="max-height:300px;"></div></div></td>
+</tr>
+<tr><td colspan="2" style="text-align:center;background:rgba(0,0,0,0.1)">Basic</td></tr>
+<tr><td>Tag</td><td>
+<select id="followtype" onchange="changeItWid()">
+<option value="23">#</option>
+<option value="40">@</option>
+</select>
+<input type="text" id="followtext" size="10" value="HJS_HelpMe" onchange="changeItWid()"></input></td></tr>
+<tr><td>No Post Text</td><td><input type="text" id="noposttext" size="10" value="No Post" onchange="changeItWid()"></input></td></tr>
+<tr><td>Shout Button</td><td><input type="text" id="shoutbuton" size="10" value="Shout!" onchange="changeItWid()"></input></td></tr>
+<tr><td>Tweet Per Page</td><td>
+<input type="text" id="rsultperpg" size="1" value="10" onchange="changeItWid()"></input></td></tr>
+<tr><td>Allow Chat Sound</td><td><input type="checkbox" id="chtsound" checked onclick="changeItWid()"></td></tr>
+<tr><td>Allow Reply Button</td><td><input type="checkbox" id="replybtn" checked onclick="changeItWid()"></td></tr>
+<tr><td colspan="2">Size</td></tr>
+<tr><td style="width:200px">Widget Width</td><td><input type="text" id="vidnumwidth" size="1" onchange="setSliderPoseNyepun(this,'widwidth',150,455,'width')" value="200"></input><div class="range" id="widwidth" style="width:100px"></div></td></tr>
+<tr><td style="width:200px">Widget Height</td><td><input type="text" id="vidnumheight" size="1" onchange="setSliderPoseNyepun(this,'widHeight',150,350,'height')" value="300"></input><div class="range" id="widHeight" style="width:100px"></div></td></tr>
+<tr><td style="width:200px">Bottom Hieght</td><td><input type="text" id="vidnumbtmhight" size="1" onchange="setSliderPoseNyepun(this,'bottomHeight',15,50,'padding')" value="20"></input><div class="range" id="bottomHeight" style="width:100px"></div></td></tr>
+<tr><td status='s' colspan="2" style="cursor:pointer;text-align:center;background:rgba(0,0,0,0.1)" onclick="toggleAdvance(this)">Advance Customize</td></tr>
+<tr><td colspan="2" style="text-align:center;background:#D4EED4"><input type="button" onclick="generateCode()" value="Generate Code"></input></td></tr>
+<tr><td colspan="2" id="codeSpace" style="display:none;text-align:center">
+<textarea id="gepan" cols="40" rows="6" onclick="this.focus();this.select();"></textarea>
+</td></tr>
+</tbody>
+</table>
+<script>
+tagjs="js/TweetHashTag.js";
+changeItWid();</script>
+</body>
+</html>

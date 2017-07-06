@@ -1,0 +1,376 @@
+<style>
+tr {
+	height:33pt
+}
+p {
+	margin-bottom:0.0001pt;
+}
+.onNOw {
+	border: 2px solid rgb(17, 163, 80);
+	box-shadow: inset 5px 18px 7px rgba(255,255,255,.7);
+	background:#95ECB1 !important;
+	font-size: 22px;
+	font-family: cursive;
+}
+.notNow {
+	border: 1px solid black;
+	font-family: cursive;
+}
+</style>
+<center>
+<audio src="dufh.wav" id="alarm"></audio>
+<input type="button" onclick="alarmStop(this)" id="stopbut" value="Stop Alarm" disabled />
+<table  border="0" cellspacing="0" cellpadding="0" width="560" style="width:420.0pt;margin-left:4.65pt;">
+ <tbody><tr>
+  <td width="72" colspan="2" style="width:54.0pt;
+  
+  
+  background:#FFEB9C;
+  padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;"><span style="color:#9C6500;">WAKTU<o:p></o:p></span></p>
+  </td>
+  <td width="31" style="width:23.0pt;
+  
+  
+  background:#FFEB9C;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;"><span style=" color:#9C6500;">&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width="457" style="width:343.0pt;
+  background:
+  #FFEB9C;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><span style="
+  color:#9C6500;">PERKARA<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" rowspan="7" style="width:27.0pt;
+  
+  
+  background:#F2F2F2;padding:0cm 5.4pt 0cm 5.4pt;
+  layout-flow:vertical;">
+  <p  align="center" style=" text-align: center;"><b><span style="
+  color:#FA7D00;">AM<o:p></o:p></span></b></p>
+  </td>
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">6<o:p></o:p></p>
+  </td>
+  <td width="31" style="width:23.0pt;
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;
+  ">
+  <p  align="center" style=" text-align: center;">&nbsp;<o:p></o:p></p>
+  </td>
+  <td width="457" style="width:343.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><b>MANDI/SOLAT/SARAPAN<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">7<o:p></o:p></p>
+  </td>
+  <td width="31" style="width:23.0pt;
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;
+  ">
+  <p  align="center" style=" text-align: center;">&nbsp;<o:p></o:p></p>
+  </td>
+  <td width="457" style="width:343.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><b>JOGGING<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">8<o:p></o:p></p>
+  </td>
+  <td width="31" style="width:23.0pt;
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;
+  ">
+  <p  align="center" style=" text-align: center;">&nbsp;<o:p></o:p></p>
+  </td>
+  <td width="457" style="width:343.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><b>MANDI / KEMAS RUMAH<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">9<o:p></o:p></p>
+  </td>
+  <td width="31" style="width:23.0pt;
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;
+  ">
+  <p  align="center" style=" text-align: center;">&nbsp;<o:p></o:p></p>
+  </td>
+  <td width="457" style="width:343.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><b>STUDY / BEBAS<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">10<o:p></o:p></p>
+  </td>
+  <td width="31" style="width:23.0pt;
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;
+  ">
+  <p  align="center" style=" text-align: center;">&nbsp;<o:p></o:p></p>
+  </td>
+  <td width="457" style="width:343.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><b>BEBAS<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">11<o:p></o:p></p>
+  </td>
+  <td width="31" style="width:23.0pt;
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;
+  ">
+  <p  align="center" style=" text-align: center;">&nbsp;<o:p></o:p></p>
+  </td>
+  <td width="457" style="width:343.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><b>MELUKIS<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">12<o:p></o:p></p>
+  </td>
+  <td width="31" style="width:23.0pt;
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;
+  ">
+  <p  align="center" style=" text-align: center;">&nbsp;<o:p></o:p></p>
+  </td>
+  <td width="457" style="width:343.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><b>MASAK<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" rowspan="12" style="width:27.0pt;
+  
+  
+  
+  background:#F2F2F2;padding:0cm 5.4pt 0cm 5.4pt;layout-flow:vertical;
+  ">
+  <p  align="center" style=" text-align: center;"><b><span style="
+  color:#FA7D00;">PM<o:p></o:p></span></b></p>
+  </td>
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">1<o:p></o:p></p>
+  </td>
+  <td width="31" style="width:23.0pt;
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;
+  ">
+  <p  align="center" style=" text-align: center;">&nbsp;<o:p></o:p></p>
+  </td>
+  <td width="457" style="width:343.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><b>MAKAN/SOLAT<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">2<o:p></o:p></p>
+  </td>
+  <td width="31" rowspan="2" style="width:23.0pt;background:
+  #F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">&nbsp;<o:p></o:p></p>
+  </td>
+  <td width="457" rowspan="2" style="width:343.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><b>BEBAS / WORKOUT<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">3<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">4<o:p></o:p></p>
+  </td>
+  <td width="31" style="width:23.0pt;
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;
+  ">
+  <p  align="center" style=" text-align: center;">&nbsp;<o:p></o:p></p>
+  </td>
+  <td width="457" style="width:343.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><b>BEBAS /SOLAT/MANDI<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">5<o:p></o:p></p>
+  </td>
+  <td width="31" rowspan="2" style="width:23.0pt;background:
+  #F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">&nbsp;<o:p></o:p></p>
+  </td>
+  <td width="457" rowspan="2" style="width:343.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><b>JOGGING<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">6<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">7<o:p></o:p></p>
+  </td>
+  <td width="31" style="width:23.0pt;
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;
+  ">
+  <p  align="center" style=" text-align: center;">&nbsp;<o:p></o:p></p>
+  </td>
+  <td width="457" style="width:343.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><b>MANDI / SOLAT<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">8<o:p></o:p></p>
+  </td>
+  <td width="31" style="width:23.0pt;
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;
+  ">
+  <p  align="center" style=" text-align: center;">&nbsp;<o:p></o:p></p>
+  </td>
+  <td width="457" style="width:343.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><b>REHAT / SOLAT<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">9<o:p></o:p></p>
+  </td>
+  <td width="31" rowspan="3" style="width:23.0pt;background:
+  #FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">&nbsp;<o:p></o:p></p>
+  </td>
+  <td width="457" rowspan="3" style="width:343.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><b>BEBAS<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">10<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  
+  background:#FDE9D9;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">11<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr >
+  <td width="36" style="width:27.0pt;
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  align="center" style=" text-align: center;">12<o:p></o:p></p>
+  </td>
+  <td width="31" style="width:23.0pt;
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;
+  ">
+  <p  align="center" style=" text-align: center;">&nbsp;<o:p></o:p></p>
+  </td>
+  <td width="457" style="width:343.0pt;
+  
+  
+  background:#F2DCDB;padding:0cm 5.4pt 0cm 5.4pt;">
+  <p  style=""><b>TIDUR<o:p></o:p></b></p>
+  </td>
+ </tr>
+</tbody></table>
+<script src="js/mock.js"></script>
+</center>
