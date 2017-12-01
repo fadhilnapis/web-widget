@@ -81,8 +81,8 @@ function createFBSAVE(userid, username, userimg, acctype, status){
 			document.getElementById("FBaccountsDisplay").innerHTML+="<table name='user-"+userid+"' style='width:300px;text-align:left;border:solid 1px #aaa;display: inline-block;'><tbody><tr><td rowspan='3' style='width:70px'><img src='"+userimg+"' style='width:90px;height:90px'></td><td><input onblur=\"document.getElementsByName('user-"+userid+"')[0].getElementsByTagName('img')[0].src=this.value;imgsFBaccounts["+userid+"]=this.value\" type='text' style='border:none;font-size: 11px;' onclick='this.select()' value='"+userimg+"' size='16'></input></td></tr><tr><td><span style=\"color:#3B5998;font-weight: bold;font-size: 13px;font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;\" contenteditable='true' onblur='nameFBaccounts["+userid+"]=this.innerHTML;'>"+username+"</span></td></tr></tbody></table><br>";
 		}
 		if(status!='tag'){
-		document.getElementById("fbimage").src='http://www.theprprofessional.com/wp-content/uploads/2011/11/facebook-profile-picture.jpg';
-		document.getElementById("vfbthumb").value='http://www.theprprofessional.com/wp-content/uploads/2011/11/facebook-profile-picture.jpg';
+		document.getElementById("fbimage").src='img/facebook-profile-picture.jpg';
+		document.getElementById("vfbthumb").value='img/facebook-profile-picture.jpg';
 		}
 		if(nameFBaccounts.length>1&&theAuthorVall!='undefined'){
 			document.getElementById('startOptionCustomize').style.display='block';
@@ -102,7 +102,7 @@ function doTagYes(x){
 				document.getElementById("vfbposts").designMode='on';
 			}
 			if(x!='making'){
-				createFBSAVE(ss, ttd, 'http://www.theprprofessional.com/wp-content/uploads/2011/11/facebook-profile-picture.jpg', 'Commentor', 'tag');
+				createFBSAVE(ss, ttd, 'img/facebook-profile-picture.jpg', 'Commentor', 'tag');
 			}
 			if(document.getElementById("vfbposts").innerText.createTextRange) {
 				var range = document.getElementById("vfbposts").createTextRange();
@@ -133,7 +133,7 @@ function saveAllAccount(){
 	}
 	textall1='<ul id="idfbgocomment">';
 	if(theFbPostLike.length>0&&parseInt(theFbPostLike)>0){
-		textall1+='<i style="margin-bottom: -2px;margin-top: 0;background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/y8/x/UvyvLtJTQzO.png); background-size: auto; display: block; height: 5px; margin-left: 17px; width: 9px; background-position: 0px 0px; background-repeat: no-repeat no-repeat;"></i><li style="border-left: 2px solid #A8B2CE;"><i style="background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/y1/x/sxT25MAq-6B.png);background-repeat: no-repeat;background-size: auto;background-position: 0 -52px;display: block;height: 13px;width: 15px;float: left;margin-right: 5px;margin-top: 1px;padding:1px 0px;"></i><div style="margin-top:2px"><a>'+theFbPostLike+' people</a> like this.</div></li>';
+		textall1+='<i style="margin-top: -5px;background-color: #f1f2f6;background-size: auto;transform: rotate(45deg);display: block;height: 10px;position: absolute;margin-left: 17px; width: 10px; background-position: 0px 0px; background-repeat: no-repeat no-repeat;"></i><li style="border-left: 2px solid #A8B2CE;margin-top:5px"><i style="background-image: url(img/like.png);background-repeat: no-repeat;background-size: contain;display: block;height: 13px;width: 16px;float: left;margin-right: 5px;margin-top: 1px;padding:1px 0px;"></i><div style="margin-top:2px"><a>'+theFbPostLike+' people</a> like this.</div></li>';
 	}
 	textall1+='</ul>';
 	var startCountTime= setInterval('updateTimeAgo()', 1000);
@@ -147,9 +147,9 @@ function createFBComment(x){
 	var b=document.getElementsByName("fbvalueing")[1+za];
 	var c=document.getElementsByName("fbvalueing")[2+za];
 	var d=document.getElementById(x);
-	textall3+='<li id="commentnumber'+commntBill+'"><div style="float:left;margin-right: 8px;"><img src="'+d.getElementsByTagName("img")[0].src+'" width="32" height="32"/></div><div><a class="cfbnames">'+a.value+'</a> <span class="dltComment" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)" style="position:relative;float:right;">X</span><span contenteditable="true" spellcheck="false" class="cfbcomments">'+b.innerHTML+'</span><div class="cfbcfootor"><span name="dateUpdateringNyePun">1 minutes</span> ago &#183; <a><span '+((c.value!=''&&parseInt(c.value)>0)?'':'style="cursor:pointer"')+' onclick="if(this.parentNode.innerText==\'Like\'){this.style.cursor=\'auto\';this.parentNode.innerHTML+=\' &#183; <i style=\\\'background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yU/x/XUQ8Cg7ygHd.png);background-repeat: no-repeat;background-size: auto;background-position: -242px -22px;display: inline-block;height: 9px;margin-right: 3px;width: 10px;\\\'></i><span spellcheck=\\\'false\\\' contenteditable=\\\'true\\\'>1</span>\'}">Like';
+	textall3+='<li id="commentnumber'+commntBill+'"><div style="float:left;margin-right: 8px;"><img src="'+d.getElementsByTagName("img")[0].src+'" width="32" height="32"/></div><div><a class="cfbnames">'+a.value+'</a> <span class="dltComment" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)" style="position:relative;float:right;">X</span><span contenteditable="true" spellcheck="false" class="cfbcomments">'+b.innerHTML+'</span><div class="cfbcfootor"><span name="dateUpdateringNyePun">1 minutes</span> ago &#183; <a><span '+((c.value!=''&&parseInt(c.value)>0)?'':'style="cursor:pointer"')+' onclick="if(this.parentNode.innerText==\'Like\'){this.style.cursor=\'auto\';this.parentNode.innerHTML+=\' &#183; <i style=\\\'background-image: url(img/like.png);background-repeat: no-repeat;background-size:contain;display: inline-block;height: 9px;margin-right: 3px;width: 10px;\\\'></i><span spellcheck=\\\'false\\\' contenteditable=\\\'true\\\'>1</span>\'}">Like';
 	if(c.value!=''&&parseInt(c.value)>0){
-		textall3+=' &#183; <i style="background-image: url(http://static.ak.fbcdn.net/rsrc.php/v2/yU/x/XUQ8Cg7ygHd.png);background-repeat: no-repeat;background-size: auto;background-position: -242px -22px;display: inline-block;height: 9px;margin-right: 3px;width: 10px;"></i><span contenteditable="true" spellcheck="false">'+c.value+'</span>';
+		textall3+=' &#183; <i style="background-image: url(img/like.png);background-repeat: no-repeat;background-size:contain;display: inline-block;height: 9px;margin-right: 3px;width: 10px;"></i><span contenteditable="true" spellcheck="false">'+c.value+'</span>';
 	}
 	textall3+='</a></div></div></li>';
 	
