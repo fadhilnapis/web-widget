@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>My Released Widget</title>
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/src/font/font-awesome/css/font-awesome.min.css">
 </head>
-<body style="margin: 0">
-<select id="folderOpt" style="width: 100%;padding: .5em;font-size: 1.3em;color:#777;border-radius: 5px" onchange="theframe.src=this.value">
+<body>
+<select id="folderOpt" class="form-control" style="width: calc(100% - 38px);display: inline-block" onchange="theframe.src=this.value;location.hash=this.selectedIndex">
 	<option value="">Choose Project</option>
 	<option value="Advertisement Slot Maker/Advertisement Slot Maker.html">Advertisement Slot Maker</option>
 	<option value="analogClock/analogClock.html">analogClock</option>
@@ -41,8 +43,17 @@
 	<option value="video player/video player.html">video player</option>
 	<option value="Video Player Maker/video player maker.html">Video Player Maker</option>
 	<option value="WidgetFormMaker/WidgetFormMaker.html">WidgetFormMaker</option>
-</select>
+</select><a class="btn btn-default" style="position: absolute;" href="https://github.com/fadhilnapis/web-widget" target="_blank"><i class="fa fa-github"></i></a>
 <br>
 <iframe id="theframe" style="width: 100%;height: 93%;position: absolute;border:0"></iframe>
+<span style="position: absolute;bottom: 0;right: 0">&copy; <script>document.write(((new Date()).getYear()+1900))</script> Muhammad Fadhil Napis</span>
+<script type="text/javascript">
+	document.body.onload = function() {
+		if(parseInt((is = (location.hash).replace("#",""))*1)!='NaN'){
+			folderOpt.selectedIndex = is
+			theframe.src=folderOpt.value
+		}
+	}
+</script>
 </body>
 </html>

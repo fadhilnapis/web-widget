@@ -59,6 +59,20 @@ var ballimg;
 var paddleimg;
 
 function init() {
+
+  paddleimg = new Image();
+  paddleimg.src = paddle.image;
+  ballimg = new Image();
+  ballimg.src = ball.image;
+  allowpadd=true
+  allowball=true
+  $(paddleimg).on('error',function(event) {
+    allowpadd=false
+  });
+  $(ballimg).on('error',function(event) {
+    allowball=false
+  });
+
   ctx = $('#canvas')[0].getContext("2d");
   WIDTH = $("#canvas").width();
   HEIGHT = $("#canvas").height();
@@ -147,12 +161,12 @@ function init_mouse() {
 }
 function onMousClick(evt){
 	if(mymouseX>WIDTH-200&&mymouseX<WIDTH&&mymouseY>HEIGHT-20&&mymouseY<HEIGHT&&state=="win"){
-		window.open("http://hantujavascript.blogspot.com/","HJS");
+		window.open("https://fadhilnapis.github.io/","HJS");
 	}
 	if(mymouseX>0&&mymouseX<400&& mymouseY>0&& mymouseY<400){
-	canvasfocus=true;
+  	canvasfocus=true;
 	}else{
-	canvasfocus=false;
+  	canvasfocus=false;
 	}
 }
 function onMouseMove(evt) {
@@ -195,14 +209,12 @@ function draw() {
   ctx.fillStyle = backcolor;
   rect(0,0, WIDTH,HEIGHT);
   ctx.fillStyle = ballcolor;
-  ballimg = new Image();
-  ballimg.src = ball.image;
-  ctx.drawImage(ballimg, x,y ,ballsize,ballsize);
+  if (allowball)
+    ctx.drawImage(ballimg, x,y ,ballsize,ballsize);
   if (rightDown) paddlex += paddle.speed;
   else if (leftDown) paddlex -= paddle.speed;
-  paddleimg = new Image();
-  paddleimg.src = paddle.image;
-  ctx.drawImage(paddleimg, paddlex, HEIGHT-paddleh, paddlew,paddleh);
+  if (allowpadd)
+    ctx.drawImage(paddleimg, paddlex, HEIGHT-paddleh, paddlew,paddleh);
   //draw bricks
   for (i=0; i < NROWS; i++) {
   if(i>=5)rowcolors[i] = rowcolors[i-5];
@@ -258,7 +270,7 @@ function draw() {
 		ctx.font="bold 13px 'tempus sans itc'";
 		ctx.fillStyle = "#00FFFF";
 		ctx.textAlign="end";
-		ctx.fillText("HantuJavascript.blogspot.com", WIDTH-5,HEIGHT-10);
+		ctx.fillText("FadhilNapis.github.io", WIDTH-5,HEIGHT-10);
 		ctx.fillStyle = "#FFFF00";
 		ctx.fillText("by Fadzz at", WIDTH-210,HEIGHT-10);
 		
